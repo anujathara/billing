@@ -1,0 +1,17 @@
+{
+  "name": "nodesqlserver",
+  "version": "0.0.0",
+  "description": "<Description about your application>",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3",
+    "mssql": "^4.3.0"
+  },
+  "scripts": {
+    "start": "server.js"
+  },
+  "author": {
+    "name": "Dhanush"
+  }
+}

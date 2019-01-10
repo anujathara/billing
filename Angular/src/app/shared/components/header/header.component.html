@@ -1,0 +1,42 @@
+<div class="heaer-container">
+<button mat-button [matMenuTriggerFor]="pos">Point of sale</button>
+<mat-menu #pos="matMenu">
+    <a mat-menu-item (click)="createTask('Sales Bill', '/salesbill')">Sales Bill</a>
+    <a mat-menu-item (click)="createTask('Home', '/home')">Menu2</a>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="inventory">Inventory Transaction</button>
+<mat-menu #inventory="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="finance">Financial Transaction</button>
+<mat-menu #finance="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="creation">Creation</button>
+<mat-menu #creation="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="inreport">Inventory Reports</button>
+<mat-menu #inreport="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="finreport">Fiancial Reports</button>
+<mat-menu #finreport="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="settings">Settings</button>
+<mat-menu #settings="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="help">Help</button>
+<mat-menu #help="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+</div>
