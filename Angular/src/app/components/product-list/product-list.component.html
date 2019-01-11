@@ -1,13 +1,37 @@
-<h2 mat-dialog-title>Install Angular</h2>
-<mat-dialog-content class="mat-typography">
- 
-  <app-sales-tab></app-sales-tab>
+<h2 mat-dialog-title>Select Item</h2>
+<mat-dialog-content>
+  <input matInput type="text" placeholder="Search Item  " [(ngModel)]="searchProduct"
+  (ngModelChange)="searchProductChange($event)">
+  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="searchProduct=''">
+    <mat-icon>close</mat-icon>
+  </button>
+  <table id="{{tabid}}_view" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="slNo">
+      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </th>
+      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.slNo}} </td>
+    </ng-container>
+    <ng-container matColumnDef="code" >
+      <th mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </th>
+      <td mat-cell style="width: 20px;" *matCellDef="let element">
+        {{ element.code }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef> Product Name </th>
+      <td mat-cell *matCellDef="let element">
+          {{ element.productName }}
+        </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
-</mat-dialog-actions>
+</mat-dialog-actions> 
 
 
 <!-- Copyright 2018 Google Inc. All Rights Reserved.

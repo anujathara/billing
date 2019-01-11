@@ -47,6 +47,7 @@ export class SalesBillComponent implements OnInit {
   selected = new FormControl(0);
   @Input() tabid: any;
   @Input() products: ProductElement;
+
   constructor(public dialog: MatDialog, private router: Router, private sqlService: SqlService) {
   }
 
@@ -57,7 +58,7 @@ export class SalesBillComponent implements OnInit {
   getData(): void {
     this.sqlService.getProductByName(1, 'Lu').subscribe(data => {
       let resources = data[0]["ProductName"];
-      alert(resources);
+      //alert(resources);
       //alert(JSON.stringify(data.ProductName))
     });
   }
@@ -66,7 +67,7 @@ export class SalesBillComponent implements OnInit {
     const dialogRef = this.dialog.open(ProductListComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      alert('Dialog result: ${result}');
+      //alert('Dialog result: ${result}');
     });
   }
 }
