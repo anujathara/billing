@@ -1,50 +1,50 @@
 
 
 <div class="sales-contianer">
-  <table id="{{tabid}}_view" mat-table [dataSource]="products" class="mat-elevation-z8">
+  <mat-table id="{{tabid}}_view"  [dataSource]="products" class="mat-elevation-z8">
     <ng-container matColumnDef="slNo">
-      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </th>
-      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.slNo}} </td>
+      <mat-header-cell  style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
+      <mat-cell  style="width: 100px;" *matCellDef="let element"> {{element.slNo}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="code" >
-      <th mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </th>
-      <td mat-cell style="width: 20px;" *matCellDef="let element">
+      <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
+      <mat-cell style="width: 20px;" *matCellDef="let element">
         <input id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput  [value]="element !== undefined &&  element.code"
           [(ngModel)]="element !== undefined && element.code">
-      </td>
+      </mat-cell>
     </ng-container>
     <ng-container matColumnDef="productName">
-      <th mat-header-cell *matHeaderCellDef> Product Name </th>
-      <td mat-cell *matCellDef="let element">
+      <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
+      <mat-cell *matCellDef="let element">
           <input id="{{tabid}}_view" class="item-input" matInput [value]="element !== undefined &&  element.productName"
             [(ngModel)]="element !== undefined && element.productName">
-        </td>
+        </mat-cell>
     </ng-container>
     <ng-container matColumnDef="qty">
-      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> Qty </th>
-      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.qty}} </td>
+      <mat-header-cell style="width: 100px;" *matHeaderCellDef> Qty </mat-header-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.qty}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="free">
-      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> Free </th>
-      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.free}} </td>
+      <mat-header-cell style="width: 100px;" *matHeaderCellDef> Free </mat-header-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.free}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="tax">
-      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> Tax </th>
-      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.tax}} </td>
+      <mat-header-cell style="width: 100px;" *matHeaderCellDef> Tax </mat-header-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.tax}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="mrp">
-      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> MRP </th>
-      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.mrp}} </td>
+      <mat-header-cell style="width: 100px;" *matHeaderCellDef> MRP </mat-header-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.mrp}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="unitPrice">
-      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> Unit Price </th>
-      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.unitPrice}} </td>
+      <mat-header-cell style="width: 100px;" *matHeaderCellDef> Unit Price </mat-header-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.unitPrice}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="netAmount">
-      <th mat-header-cell style="width: 100px;" *matHeaderCellDef> Net Amount </th>
-      <td mat-cell style="width: 100px;" *matCellDef="let element"> {{element.netAmount}} </td>
+      <mat-header-cell style="width: 100px;" *matHeaderCellDef> Net Amount </mat-header-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.netAmount}} </mat-cell>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>

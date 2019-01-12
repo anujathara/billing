@@ -47,27 +47,32 @@ export class SalesBillComponent implements OnInit {
   selected = new FormControl(0);
   @Input() tabid: any;
   @Input() products: ProductElement;
+  productList: any;
 
   constructor(public dialog: MatDialog, private router: Router, private sqlService: SqlService) {
   }
 
   ngOnInit() {
-    this.getData();
+    this.sqlService.getProductList().subscribe(datas => {
+      this.productList = datas;
+    });
   }
 
   getData(): void {
-    this.sqlService.getProductByName(1, 'Lu').subscribe(data => {
-      let resources = data[0]["ProductName"];
-      //alert(resources);
-      //alert(JSON.stringify(data.ProductName))
-    });
+    // this.sqlService.getProductByName(1, 'Lu').subscribe(data => {
+    //   let resources = data[0]["ProductName"];
+    //   //alert(resources);
+    //   //alert(JSON.stringify(data.ProductName))
+    // });
   }
 
   openProducts() {
-    const dialogRef = this.dialog.open(ProductListComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      //alert('Dialog result: ${result}');
+    const dialogRef = this.dialog.open(ProductListComponent, {
+      width: '450px',
+      data: { productList: this.productList }
     });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+
   }
 }

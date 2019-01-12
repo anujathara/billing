@@ -30,18 +30,35 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.post('/getProductByName', function (req, res) {
-    const postBody = req.body;
-    console.log(postBody);    
-    console.log(postBody.searchType);
-    console.log(postBody.searchText);
-    // var query = 'select * from Domains';
-    //executeQuery(query, res);
+// app.post('/getProductByName', function (req, res) {
+//     const postBody = req.body;
+//     console.log(postBody);    
+//     console.log(postBody.searchType);
+//     console.log(postBody.searchText);
+//     // var query = 'select * from Domains';
+//     //executeQuery(query, res);
+//     var sql = require("mssql");
+//     new sql.ConnectionPool(dbConfig).connect().then(pool => {
+//         return pool.request().input('SearchType', sql.Int, req.body.searchType)
+//             .input('SearchText', sql.VarChar(250), req.body.searchText)
+//             .execute("GetProductListByName")
+//     }).then(result => {
+//         let rows = result.recordset;
+//         res.status(200).json(rows);
+//         console.log("Send Success");
+//         sql.close();
+//     }).catch(err => {
+//         res.status(500).send(err);
+//         // res.status(500).send({ message: "${err}" })
+//         console.log("Send Failed " + err);
+//         sql.close();
+//     });
+// });
+
+app.get('/getProductList', function (req, res) {
     var sql = require("mssql");
     new sql.ConnectionPool(dbConfig).connect().then(pool => {
-        return pool.request().input('SearchType', sql.Int, req.body.searchType)
-            .input('SearchText', sql.VarChar(250), req.body.searchText)
-            .execute("GetProductListByName")
+        return pool.request().execute("GetProductList")
     }).then(result => {
         let rows = result.recordset;
         res.status(200).json(rows);
@@ -78,7 +95,7 @@ var executeStoredProc = function (req, res) {
     new sql.ConnectionPool(dbConfig).connect().then(pool => {
         return pool.request().input('SearchType', sql.Int, req.body.searchType)
             .input('SearchText', sql.VarChar(250), req.body.searchText)
-            .execute("GetProductListByName")
+            .execute("GetProductList")
     }).then(result => {
         let rows = result.recordset;
         res.status(200).json(rows);

@@ -2,7 +2,7 @@
     width: 120px;
 }
 
-table {
+.mat-table {
     width: 100%;
   }
 
@@ -18,11 +18,11 @@ table {
       border-right: 1px solid #fff;
   }
 
-  tr.mat-header-row {
+  .mat-header-row {
       height: 35px;
   }
 
-  td.mat-cell {
+  .mat-cell {
     border-right: 1px solid grey;
   }
   .mat-row {

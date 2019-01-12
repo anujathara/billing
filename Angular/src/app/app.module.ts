@@ -9,7 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -23,6 +25,7 @@ import { TaskBarComponent } from './components/task-bar/task-bar.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SqlService } from './shared/data-service/sql.service';
+import { SpinnerService } from './shared/broadcast-service/spinner.service';
 
 @NgModule({
   declarations: [
@@ -47,12 +50,17 @@ import { SqlService } from './shared/data-service/sql.service';
     FormsModule,
     MatIconModule,
     MatTabsModule,
-
-    HttpClientModule
+    MatPaginatorModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [ProductListComponent, SalesBillComponent],
 
-  providers: [TaskService, SqlService],
+  providers: [
+    TaskService,
+    SqlService,
+    SpinnerService
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
