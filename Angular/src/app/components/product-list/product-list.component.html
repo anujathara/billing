@@ -1,10 +1,10 @@
 <h2 mat-dialog-title>Select Item</h2>
 <mat-dialog-content>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="searchProduct=''">
     <mat-icon>close</mat-icon>
   </button>
-  <mat-table id="{{tabid}}_view" [dataSource]="dataSource" class="mat-elevation-z8">
+  <mat-table (keyup)="scroll($event)" id="{{tabid}}_view" [dataSource]="dataSource" class="product-list">
     <ng-container matColumnDef="slNo">
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
       <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
@@ -21,10 +21,11 @@
         {{ element.ProductName }}
       </mat-cell>
     </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row [ngClass]="{'highlight': selectedRowIndex == row.SerialNumber}"
+    (click)="selectedRow(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+  <mat-paginator pageSize="100" showFirstLastButtons>
   </mat-paginator>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

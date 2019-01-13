@@ -68,7 +68,8 @@ export class SalesBillComponent implements OnInit {
 
   openProducts() {
     const dialogRef = this.dialog.open(ProductListComponent, {
-      width: '450px',
+      width: '60%',
+      height: '90%',
       data: { productList: this.productList }
     });
     dialogRef.afterClosed().subscribe(result => {

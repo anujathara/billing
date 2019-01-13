@@ -98,3 +98,12 @@ padding: 0 !important;
     min-width: 160px;
     padding: 0 24px;
 } 
+
+.mat-dialog-content {
+    overflow: hidden !important;
+}
+
+.mat-table { 
+    overflow: auto !important;
+}
+  

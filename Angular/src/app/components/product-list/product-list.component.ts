@@ -4,7 +4,7 @@ import { MatTableDataSource, MatPaginator, MAT_DIALOG_DATA } from '@angular/mate
 
 
 export interface ProductElement {
-  SerialNumber: Number;
+  SerialNumber: number;
   ProductCode: string;
   ProductName: string;
 }
@@ -25,15 +25,17 @@ export class ProductListComponent implements OnInit {
   searchProduct = '';
   @ViewChild(MatPaginator) matPaginator: MatPaginator;
 
-  constructor(private sqlService: SqlService,  @Inject(MAT_DIALOG_DATA) public data: any) { }
+  selectedRowIndex: number = -1;
+
+  constructor(private sqlService: SqlService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
     this.dataSource.paginator = this.matPaginator;
     this.dataSource.data = this.data.productList;
     this.dataSource.filterPredicate = (data, filter) =>
-    data.ProductName.toLowerCase().indexOf(filter) !== -1
-    && data.ProductCode.toString().toLowerCase().indexOf('') !== -1
-    && data.SerialNumber.toString().toLowerCase().indexOf('') !== -1
+      data.ProductName.toLowerCase().indexOf(filter) !== -1
+      && data.ProductCode.toString().toLowerCase().indexOf('') !== -1
+      && data.SerialNumber.toString().toLowerCase().indexOf('') !== -1
   }
 
   applyFilter(filterValue: string) {
@@ -58,6 +60,20 @@ export class ProductListComponent implements OnInit {
     //   });
     // }
   }
-}
+  selectedRow(row: ProductElement) {
+    this.selectedRowIndex = row.SerialNumber;
+  }
 
+  scroll(event: KeyboardEvent) {
+    alert('sdfsfsf');
+    event.preventDefault();
+    if(event.keyCode === 40) {
+      alert('fsfsf');
+      this.selectedRowIndex = ++this.selectedRowIndex;
+    } else if(event.keyCode === 38) {
+      alert('dfsf');
+      this.selectedRowIndex = --this.selectedRowIndex;
+    } else return;
+  }
+}
 

@@ -1,6 +1,6 @@
 
 
-<div class="sales-contianer">
+<div class="sales-contianer mat-elevation-z8">
   <mat-table id="{{tabid}}_view"  [dataSource]="products" class="mat-elevation-z8">
     <ng-container matColumnDef="slNo">
       <mat-header-cell  style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
@@ -9,7 +9,7 @@
     <ng-container matColumnDef="code" >
       <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
       <mat-cell style="width: 20px;" *matCellDef="let element">
-        <input id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput  [value]="element !== undefined &&  element.code"
+        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput  [value]="element !== undefined &&  element.code"
           [(ngModel)]="element !== undefined && element.code">
       </mat-cell>
     </ng-container>
@@ -44,7 +44,7 @@
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Net Amount </mat-header-cell>
       <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.netAmount}} </mat-cell>
     </ng-container>
-    <mat-header-row  *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-header-row  *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </div>
