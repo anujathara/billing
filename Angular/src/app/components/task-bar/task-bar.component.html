@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="content">
     <div class="main-content">
@@ -8,9 +7,7 @@
             {{ tab.title }}
             <!-- <mat-icon class="tab-icon-close" (click)="removeTab(index)">clear</mat-icon> -->
           </ng-template>
-          <mat-progress-spinner *ngIf="showSpinner" class="example-margin" color="primary" mode="indeterminate" value="50">
-          </mat-progress-spinner>
-          <router-outlet  *ngIf="!showSpinner"></router-outlet>
+          <router-outlet></router-outlet>
         </mat-tab>
       </mat-tab-group>
     </div>

@@ -1,2 +1,17 @@
 <app-header></app-header>
-<app-task-bar></app-task-bar>
+<mat-progress-spinner *ngIf="showSpinner" class="example-margin" color="primary" mode="indeterminate" value="50">
+</mat-progress-spinner>
+<div>{{showSpinner}}</div>
+<app-task-bar *ngIf="!showSpinner"></app-task-bar>
+<!-- <div class="container">
+        <div class="content">
+          <div class="main-content">
+            <mat-tab-group>
+              <mat-tab label="Tab One Anuja Thara">
+                <router-outlet></router-outlet>
+              </mat-tab>
+              
+            </mat-tab-group>
+          </div>
+        </div>
+      </div> -->
