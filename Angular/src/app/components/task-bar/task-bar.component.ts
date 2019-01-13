@@ -4,6 +4,7 @@ import { TaskService } from 'src/app/shared/broadcast-service/task.service';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material';
+import { SpinnerService } from 'src/app/shared/broadcast-service/spinner.service';
 
 
 @Component({
@@ -17,10 +18,11 @@ export class TaskBarComponent implements OnInit, AfterViewInit, OnDestroy {
   selected = new FormControl(0);
 
   subscription: Subscription;
+  showSpinner: boolean;
   subscription1: Subscription;
 
   constructor(private taskService: TaskService, private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute, private spinner: SpinnerService) {
     router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         this.loadUrl(router.url);
@@ -67,6 +69,12 @@ export class TaskBarComponent implements OnInit, AfterViewInit, OnDestroy {
       task => {
         this.clearTask(task);
       });
+    this.spinner.subject.subscribe((display: boolean) => {
+      setTimeout(() => {
+        this.showSpinner = display;
+      });
+    })
+    
   }
 
   ngAfterViewInit() {
