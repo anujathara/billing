@@ -4,7 +4,23 @@
   <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="searchProduct=''">
     <mat-icon>close</mat-icon>
   </button>
-  <mat-table (keyup)="scroll($event)" id="{{tabid}}_view" [dataSource]="dataSource" class="product-list">
+
+    <ngx-datatable id="table" class="dark"
+        [rows]="rows"
+        [loadingIndicator]="loadingIndicator"
+        [columns]="columns"
+        [columnMode]="'force'"
+        [headerHeight]="40"
+        [summaryRow]="false"
+        [footerHeight]="40"
+        [limit]="10"
+        [rowHeight]="'auto'"
+        [reorderable]="reorderable">
+    </ngx-datatable>
+
+
+
+  <!-- <mat-table (keypress)="scroll($event)" id="{{tabid}}_view" [dataSource]="dataSource" class="product-list">
     <ng-container matColumnDef="slNo">
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
       <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
@@ -23,10 +39,10 @@
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row [ngClass]="{'highlight': selectedRowIndex == row.SerialNumber}"
-    (click)="selectedRow(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    (click)="selectedRow(row)" (keypress)="scroll($event)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
   <mat-paginator pageSize="100" showFirstLastButtons>
-  </mat-paginator>
+  </mat-paginator> -->
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>

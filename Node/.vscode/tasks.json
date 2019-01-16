@@ -1,0 +1,5 @@
+{
+    "runOptions": {
+        "runOn": "node server.js"
+    }
+}

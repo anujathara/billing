@@ -1,3 +1,6 @@
+body {
+    background-color: #1e1e1e;
+}
 
 .mat-app-background {
     background-color: #fff !important;
@@ -26,7 +29,7 @@ padding: 0 !important;
 }
 .main-content .mat-tab-header {
   border-bottom: none;
-  background-color: blue;
+  background-color: #333333;
   border-right: 1px solid rgba(0,0,0,.12);
 }
 
@@ -58,7 +61,7 @@ padding: 0 !important;
 
 .bill-container .mat-tab-header {
     border-bottom: 1px solid rgba(0,0,0,.12);
-    background-color: brown;
+    background-color: #2d2d2d;
   }
 
 

@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { Router } from '@angular/router';
 
+import {DatatableComponent} from '@swimlane/ngx-datatable';
+
 import { SqlService } from 'src/app/shared/data-service/sql.service';
 
 export interface ProductElement {
@@ -65,7 +67,7 @@ export class SalesBillComponent implements OnInit {
     //   //alert(JSON.stringify(data.ProductName))
     // });
   }
-
+  
   openProducts() {
     const dialogRef = this.dialog.open(ProductListComponent, {
       width: '60%',

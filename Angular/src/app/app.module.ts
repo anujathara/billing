@@ -12,6 +12,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -27,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SqlService } from './shared/data-service/sql.service';
 import { SpinnerService } from './shared/broadcast-service/spinner.service';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +41,7 @@ import { SpinnerService } from './shared/broadcast-service/spinner.service';
     TaskBarComponent
   ],
   imports: [
+    NgxDatatableModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatMenuModule,
