@@ -1,5 +1,6 @@
 body {
     background-color: #1e1e1e;
+    height: 100%;
 }
 
 .mat-app-background {
@@ -7,21 +8,21 @@ body {
 }
 
 .basic-container {
-padding: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    overflow: hidden;
 }
 .mat-tab-label:last-child {
     min-width: unset !important;
 }
 
-
 .mat-tab-label {
     opacity: unset !important;
 }
 
-
-
-
-
+.mat-tab-body-wrapper {
+    background-color: #1e1e1e;
+}
 
 .main-content .mat-tab-group {
     display: flex;
@@ -109,4 +110,8 @@ padding: 0 !important;
 .mat-table { 
     overflow: auto !important;
 }
-  
+
+.mat-dialog-container {
+    background-color: #1E1E1E !important;
+    overflow: hidden !important;
+  }

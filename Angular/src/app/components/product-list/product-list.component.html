@@ -5,18 +5,32 @@
     <mat-icon>close</mat-icon>
   </button>
 
-    <ngx-datatable id="table" class="dark"
-        [rows]="rows"
-        [loadingIndicator]="loadingIndicator"
-        [columns]="columns"
-        [columnMode]="'force'"
-        [headerHeight]="40"
-        [summaryRow]="false"
-        [footerHeight]="40"
-        [limit]="10"
-        [rowHeight]="'auto'"
-        [reorderable]="reorderable">
-    </ngx-datatable>
+  <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
+    [columnMode]="'flex'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="5" [rowHeight]="'auto'"
+    [reorderable]="reorderable" (activate)="onActivate($event)" (keypress)="onKeypress($event)" (select)='onSelect($event)' style="width:100%">
+
+
+    <ngx-datatable-column name="Sl No." [flexGrow]="50">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+        {{row.SerialNumber}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Product Code" [flexGrow]="50">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+        {{row.ProductCode}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Product Name" [flexGrow]="100">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+        {{row.ProductName}}
+      </ng-template>
+    </ngx-datatable-column>
+
+
+
+  </ngx-datatable>
 
 
 

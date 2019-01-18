@@ -6,7 +6,7 @@
         {{ tab.name }}
         <mat-icon class="tab-icon-close" (click)="removeTab(index)">clear</mat-icon>
       </ng-template>
-      <app-sales-bill [products]="tab.products" [tabid]="tab.id" id="{{tab.id}}_view"></app-sales-bill>
+      <app-sales-bill [productList]="fullProductList" [products]="tab.products" [tabid]="tab.id" id="{{tab.id}}_view"></app-sales-bill>
     </mat-tab>
     <mat-tab *ngIf="tabs.length !== 5" disabled>
       <ng-template mat-tab-label>

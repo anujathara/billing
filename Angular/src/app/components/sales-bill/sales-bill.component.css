@@ -1,3 +1,8 @@
+
+.item-input {
+    background-color: #232837;
+}
+
 .table-cell-width {
     width: 120px;
 }
@@ -8,7 +13,7 @@
 
   .sales-contianer {
       display: flex;
-      background-color: white;
+      /* background-color: white; */
       padding: 15px;
       overflow: auto;
   }

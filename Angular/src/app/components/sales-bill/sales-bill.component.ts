@@ -32,6 +32,8 @@ const ELEMENT_DATA: ProductElement[] = [
 export class SalesBillComponent implements OnInit {
 
   data: any;
+  loadingIndicator: boolean = true;
+  reorderable: boolean = true;
 
   displayedColumns: string[] = [
     'slNo',
@@ -44,20 +46,24 @@ export class SalesBillComponent implements OnInit {
     'unitPrice',
     'netAmount',
   ];
+
   dataSource = ELEMENT_DATA;
 
   selected = new FormControl(0);
   @Input() tabid: any;
   @Input() products: ProductElement;
-  productList: any;
+  @Input() productList: any = [];
+
+  //productList: any = [];
 
   constructor(public dialog: MatDialog, private router: Router, private sqlService: SqlService) {
+
   }
 
   ngOnInit() {
-    this.sqlService.getProductList().subscribe(datas => {
-      this.productList = datas;
-    });
+    // this.sqlService.getProductList().subscribe(datas => {
+    //   this.productList = datas;
+    // });
   }
 
   getData(): void {

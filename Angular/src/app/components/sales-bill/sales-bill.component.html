@@ -1,24 +1,108 @@
-
-
 <div class="sales-contianer mat-elevation-z8">
-  <mat-table id="{{tabid}}_view"  [dataSource]="products" class="mat-elevation-z8">
+
+
+  <ngx-datatable id="{{tabid}}_view" class="dark" [rows]="products" [loadingIndicator]="loadingIndicator" [columns]="columns"
+    [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="10" [rowHeight]="'auto'"
+    [reorderable]="reorderable" style="width: 100%;">
+
+    <ngx-datatable-column name="Sl No.">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          {{row.slNo}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Code">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput [value]="row !== undefined &&  row.code"
+          [(ngModel)]="row !== undefined && row.code">
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Product Name">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          {{row.productName}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Qty">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          <input autofocus id="{{tabid}}_view" class="item-input" matInput [value]="row !== undefined &&  row.qty"
+          [(ngModel)]="row !== undefined && row.qty">
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Free">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          {{row.free}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Tax">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          {{row.tax}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="MRP">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          {{row.mrp}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Unit Price">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          {{row.unitPrice}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Net Amount">
+      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
+          {{row.netAmount}}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <!-- <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+        <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
+          {{value}}
+        </span>
+        <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
+          [value]="value" />
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Code">
+      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
+        <span title="Double click to edit" (dblclick)="editing[rowIndex + '-gender'] = true" *ngIf="!editing[rowIndex + '-gender']">
+          {{value}}
+        </span>
+        <select *ngIf="editing[rowIndex + '-gender']" (blur)="editing[rowIndex + '-gender'] = false" (change)="updateValue($event, 'gender', rowIndex)"
+          [value]="value">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </ng-template> -->
+
+  </ngx-datatable>
+
+
+
+  <!-- <mat-table id="{{tabid}}_view" [dataSource]="products" class="mat-elevation-z8">
     <ng-container matColumnDef="slNo">
-      <mat-header-cell  style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
-      <mat-cell  style="width: 100px;" *matCellDef="let element"> {{element.slNo}} </mat-cell>
+      <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.slNo}} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="code" >
+    <ng-container matColumnDef="code">
       <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
       <mat-cell style="width: 20px;" *matCellDef="let element">
-        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput  [value]="element !== undefined &&  element.code"
+        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput [value]="element !== undefined &&  element.code"
           [(ngModel)]="element !== undefined && element.code">
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="productName">
       <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
       <mat-cell *matCellDef="let element">
-          <input id="{{tabid}}_view" class="item-input" matInput [value]="element !== undefined &&  element.productName"
-            [(ngModel)]="element !== undefined && element.productName">
-        </mat-cell>
+        <input id="{{tabid}}_view" class="item-input" matInput [value]="element !== undefined &&  element.productName"
+          [(ngModel)]="element !== undefined && element.productName">
+      </mat-cell>
     </ng-container>
     <ng-container matColumnDef="qty">
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Qty </mat-header-cell>
@@ -44,7 +128,7 @@
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Net Amount </mat-header-cell>
       <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.netAmount}} </mat-cell>
     </ng-container>
-    <mat-header-row  *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table> -->
 </div>

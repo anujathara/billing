@@ -1,10 +1,11 @@
-import { Component, ViewChild, ViewContainerRef, ViewRef } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, ViewRef, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { MatTabChangeEvent } from '@angular/material';
 import { Router } from '@angular/router';
 import { SalesBillComponent, ProductElement } from '../sales-bill/sales-bill.component';
 import { TaskService } from 'src/app/shared/broadcast-service/task.service';
+import { SqlService } from 'src/app/shared/data-service/sql.service';
 
 @Component({
   selector: 'app-sales-tab',
@@ -12,7 +13,7 @@ import { TaskService } from 'src/app/shared/broadcast-service/task.service';
   styleUrls: ['./sales-tab.component.css']
 })
 
-export class SalesTabComponent {
+export class SalesTabComponent implements OnInit {
   @ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;
   billNo: any = 1;
 
@@ -26,6 +27,9 @@ export class SalesTabComponent {
   tabIndex: any = 0;
   view: ViewRef;
   dynamicTabs: SalesBillComponent[] = [];
+  fullProductList: any[];
+
+  constructor(public dialog: MatDialog, private router: Router, private taskService: TaskService, private sqlService: SqlService) {}
 
   addTab() {
     const productList1: ProductElement[] = [
@@ -67,7 +71,10 @@ export class SalesTabComponent {
     }
   }
 
-  constructor(public dialog: MatDialog, private router: Router, private taskService: TaskService) {
+  ngOnInit() {
+    this.sqlService.getProductList().subscribe(datas => {
+      this.fullProductList = datas;
+    });
   }
 }
 
