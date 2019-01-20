@@ -9,9 +9,9 @@ import {DatatableComponent} from '@swimlane/ngx-datatable';
 import { SqlService } from 'src/app/shared/data-service/sql.service';
 
 export interface ProductElement {
-  slNo: Number;
-  code: string;
-  productName: string;
+  SerialNumber: Number;
+  ProductCode: string;
+  ProductName: string;
   qty: Number;
   free: Number;
   tax: Number;
@@ -21,7 +21,7 @@ export interface ProductElement {
 }
 
 const ELEMENT_DATA: ProductElement[] = [
-  { slNo: 1, code: '', productName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
+  { SerialNumber: 1, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
 ];
 
 @Component({
@@ -51,7 +51,7 @@ export class SalesBillComponent implements OnInit {
 
   selected = new FormControl(0);
   @Input() tabid: any;
-  @Input() products: ProductElement;
+  @Input() products: ProductElement [];
   @Input() productList: any = [];
 
   //productList: any = [];
@@ -81,6 +81,9 @@ export class SalesBillComponent implements OnInit {
       data: { productList: this.productList }
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.products[this.products.length - 1]['ProductName'] = result.ProductName;
+      this.products[this.products.length - 1]['ProductCode'] = result.ProductCode;
+     alert(result.ProductName);
     });
 
   }

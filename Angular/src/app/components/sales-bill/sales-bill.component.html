@@ -7,20 +7,20 @@
 
     <ngx-datatable-column name="Sl No.">
       <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.slNo}}
+          {{row.SerialNumber}}
       </ng-template>
     </ngx-datatable-column>
 
     <ngx-datatable-column name="Code">
       <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput [value]="row !== undefined &&  row.code"
-          [(ngModel)]="row !== undefined && row.code">
+        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput [value]="row !== undefined &&  row.ProductCode"
+          [(ngModel)]="row !== undefined && row.ProductCode">
       </ng-template>
     </ngx-datatable-column>
 
     <ngx-datatable-column name="Product Name">
       <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.productName}}
+          {{row.ProductName}}
       </ng-template>
     </ngx-datatable-column>
 

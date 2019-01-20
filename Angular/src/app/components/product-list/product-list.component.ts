@@ -13,6 +13,7 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
 
   rows = [];
   temp = [];
+  selected = [];
   loadingIndicator: boolean = true;
   reorderable: boolean = true;
 
@@ -31,6 +32,9 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
     this.rows = this.data.productList;
     this.temp  = this.rows;
 
+    if(this.rows.length > 0){
+      this.selected.push(this.rows[0]);
+    }
     // this.dataSource.paginator = this.matPaginator;
     // this.dataSource.data = this.data.productList;
     // this.dataSource.filterPredicate = (data, filter) =>
@@ -62,18 +66,23 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
   }
 
   onSelect({ selected }) {
-    alert("select" + selected);
-  }
+    this.selected = selected;
+    }
 
   onActivate(event) {
+    
    // alert(event);
-    if(event.type == "keydown")
-      alert(event.event.code);
+   // if(event.type == "keydown")
+  //    alert(event.event.code);
   }
 
   onKeypress(event) {
-    alert(event.key);
+  //  alert(event.key);
   }
+  onKeyup(event) {
+   // if(event.key);
+  }
+
 
 }
 

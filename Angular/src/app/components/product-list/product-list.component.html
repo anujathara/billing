@@ -6,8 +6,9 @@
   </button>
 
   <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
-    [columnMode]="'flex'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="5" [rowHeight]="'auto'"
-    [reorderable]="reorderable" (activate)="onActivate($event)" (keypress)="onKeypress($event)" (select)='onSelect($event)' style="width:100%">
+    [columnMode]="'flex'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="20" [rowHeight]="'auto'"
+    [reorderable]="reorderable" [selected]="selected" [selectionType]="'single'" (activate)="onActivate($event)"
+    (keypress)="onKeypress($event)" (select)='onSelect($event)' (keyup)="onKeyup($event)">
 
 
     <ngx-datatable-column name="Sl No." [flexGrow]="50">
@@ -60,7 +61,7 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+  <button mat-button [mat-dialog-close]="this.selected[0]" cdkFocusInitial>Install</button>
 </mat-dialog-actions>
 
 

@@ -18,7 +18,7 @@ export class SalesTabComponent implements OnInit {
   billNo: any = 1;
 
   productList: ProductElement[] = [
-    { slNo: 1, code: '', productName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
+    { SerialNumber: 1, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
   ];
   arr: any[] = [{ productList: this.productList }]
 
@@ -33,7 +33,7 @@ export class SalesTabComponent implements OnInit {
 
   addTab() {
     const productList1: ProductElement[] = [
-      { slNo: 1, code: '', productName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
+      { SerialNumber: 1, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
     ];
     this.arr.push({ productList: productList1 });
     this.tabs.splice(this.tabs.length, 0, { id: this.billNo, products: this.arr[this.tabs.length]['productList'], name: 'Bill' + (this.tabs.length + 1), content: this.vc });
