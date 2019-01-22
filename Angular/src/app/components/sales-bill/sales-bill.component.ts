@@ -78,7 +78,8 @@ export class SalesBillComponent implements OnInit {
     const dialogRef = this.dialog.open(ProductListComponent, {
       width: '60%',
       height: '90%',
-      data: { productList: this.productList }
+      data: { productList: this.productList },
+      autoFocus: false
     });
     dialogRef.afterClosed().subscribe(result => {
       this.products[this.products.length - 1]['ProductName'] = result.ProductName;

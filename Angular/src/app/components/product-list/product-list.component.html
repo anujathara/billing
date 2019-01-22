@@ -1,29 +1,30 @@
 <h2 mat-dialog-title>Select Item</h2>
 <mat-dialog-content>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input #searchInput tabindex="-1" autofocus matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="searchProduct=''">
     <mat-icon>close</mat-icon>
   </button>
 
-  <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
-    [columnMode]="'flex'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="20" [rowHeight]="'auto'"
+
+    <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
+    [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="20" [rowHeight]="'auto'"
     [reorderable]="reorderable" [selected]="selected" [selectionType]="'single'" (activate)="onActivate($event)"
     (keypress)="onKeypress($event)" (select)='onSelect($event)' (keyup)="onKeyup($event)">
 
 
-    <ngx-datatable-column name="Sl No." [flexGrow]="50">
+    <ngx-datatable-column name="Sl No." [resizeable]="false" [canAutoResize]="false" [width]="50" [flexGrow]="1">
       <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
         {{row.SerialNumber}}
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Product Code" [flexGrow]="50">
+    <ngx-datatable-column name="Product Code" [resizeable]="false" [canAutoResize]="false" [width]="100" [flexGrow]="2">
       <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
         {{row.ProductCode}}
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Product Name" [flexGrow]="100">
+    <ngx-datatable-column name="Product Name" [resizeable]="false" [width]="300" [flexGrow]="4">
       <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
         {{row.ProductName}}
       </ng-template>
@@ -32,7 +33,6 @@
 
 
   </ngx-datatable>
-
 
 
   <!-- <mat-table (keypress)="scroll($event)" id="{{tabid}}_view" [dataSource]="dataSource" class="product-list">

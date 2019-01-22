@@ -26,7 +26,7 @@
 
     <ngx-datatable-column name="Qty">
       <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          <input autofocus id="{{tabid}}_view" class="item-input" matInput [value]="row !== undefined &&  row.qty"
+          <input id="{{tabid}}_view" class="item-input" matInput [value]="row !== undefined &&  row.qty"
           [(ngModel)]="row !== undefined && row.qty">
       </ng-template>
     </ngx-datatable-column>

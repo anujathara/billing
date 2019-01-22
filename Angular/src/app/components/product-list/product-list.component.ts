@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild, Inject, ElementRef } from '@angular/core';
 import { SqlService } from 'src/app/shared/data-service/sql.service';
 import { MatTableDataSource, MatPaginator, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -25,6 +25,8 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
 
   searchProduct = '';
   @ViewChild(DatatableComponent) table: DatatableComponent;
+  @ViewChild("searchInput") searchInput: ElementRef;
+  
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
@@ -35,6 +37,8 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
     if(this.rows.length > 0){
       this.selected.push(this.rows[0]);
     }
+
+
     // this.dataSource.paginator = this.matPaginator;
     // this.dataSource.data = this.data.productList;
     // this.dataSource.filterPredicate = (data, filter) =>
@@ -45,9 +49,9 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
 
-    // this.table.recalculate();
-
-
+    //alert(this.dialog1.nativeElement.offsetWidth);
+  //   this.table.recalculate();
+   
   }
 
   applyFilter(filterValue: string) {

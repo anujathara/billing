@@ -137,13 +137,8 @@ body {
     overflow-x: hidden;
 }
 
-.datatable-body-row, .datatable-header-cell, .datatable-body-cell {
-    width: 100% !important;
-}
 
-.datatable-body-row, .datatable-header-inner {
-    width: 100% !important;
-}
-.datatable-scroll {
+
+.datatable-body-row, .datatable-scroll, .datatable-header-inner {
     width: 100% !important;
 }
