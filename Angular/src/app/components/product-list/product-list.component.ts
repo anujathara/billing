@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewChecked, ViewChild, Inject, ElementRef } from '@angular/core';
 import { SqlService } from 'src/app/shared/data-service/sql.service';
-import { MatTableDataSource, MatPaginator, MAT_DIALOG_DATA } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MAT_DIALOG_DATA, MatInput } from '@angular/material';
 
-import {DatatableComponent} from '@swimlane/ngx-datatable';
+import { DatatableComponent, DataTableBodyRowComponent } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'app-product-list',
@@ -25,19 +25,19 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
 
   searchProduct = '';
   @ViewChild(DatatableComponent) table: DatatableComponent;
-  @ViewChild("searchInput") searchInput: ElementRef;
-  
+  @ViewChild(MatInput) searchInput: MatInput;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
     this.rows = this.data.productList;
-    this.temp  = this.rows;
+    this.temp = this.rows;
 
-    if(this.rows.length > 0){
-      this.selected.push(this.rows[0]);
+    if (this.rows.length > 0) {
+      this.selected[0] = this.rows[0];
     }
-
+    this.searchInput.focus();
 
     // this.dataSource.paginator = this.matPaginator;
     // this.dataSource.data = this.data.productList;
@@ -50,43 +50,72 @@ export class ProductListComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked() {
 
     //alert(this.dialog1.nativeElement.offsetWidth);
-  //   this.table.recalculate();
-   
+    //   this.table.recalculate();
+
   }
 
-  applyFilter(filterValue: string) {
+  applyFilter(event, filterValue: string) {
     // this.dataSource.filter = filterValue.trim().toLowerCase();
+    if(event.code === 'ArrowDown') {
+      this.selected[0] = this.rows[this.table.bodyComponent.getRowIndex(this.selected[0]) + 1];
+      this.table.recalculate();
+      this.table.bodyComponent.recalcLayout();
 
+      this.table.bodyComponent.updateIndexes();
+      
+      this.table.activate;
+    } else if(event.code === 'ArrowUp') {
+      this.selected[0] = this.rows[this.table.bodyComponent.getRowIndex(this.selected[0]) - 1];
+    } else {
+    
     const val = filterValue.toLowerCase();
-    const temp = this.temp.filter(function(d) {
+    const temp = this.temp.filter(function (d) {
       return d.ProductName.toLowerCase().indexOf(val) !== -1 || !val;
     });
 
-    temp.map((x,i) =>  {
+    temp.map((x, i) => {
       return x.SerialNumber = i + 1;
     });
     this.rows = temp;
     this.table.offset = 0;
+
+    this.selected[0] = this.rows[0];
+  }
   }
 
   onSelect({ selected }) {
-    this.selected = selected;
-    }
+    // this.selected = selected;
+    //alert(this.table.offset);
+  }
 
   onActivate(event) {
-    
-   // alert(event);
-   // if(event.type == "keydown")
-  //    alert(event.event.code);
+
+    if (event.type == "keydown" && event.event.code == "ArrowDown") {
+      if((this.table.bodyComponent.getRowIndex(event.row)+1) == (this.table.limit * (this.table.offset+1))) {
+        this.table.offset++;
+
+
+        
+      }
+      this.selected[0] = this.rows[this.table.bodyComponent.getRowIndex(event.row) + 1];
+    }
+    else if (event.type == "keydown" && event.event.code == "ArrowUp") {
+      this.selected[0] = this.rows[this.table.bodyComponent.getRowIndex(event.row) - 1];
+    }
+   //  event.preventDefault(); 
+
   }
 
   onKeypress(event) {
-  //  alert(event.key);
+    //  alert(event.key);
   }
   onKeyup(event) {
-   // if(event.key);
+    // if(event.key);
   }
 
+  onFooterPage(event) {
+    alert(event);
+  }
 
 }
 

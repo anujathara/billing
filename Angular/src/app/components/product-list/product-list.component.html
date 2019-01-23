@@ -1,13 +1,13 @@
 <h2 mat-dialog-title>Select Item</h2>
 <mat-dialog-content>
-  <input #searchInput tabindex="-1" autofocus matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput id="searchInput" (keyup)="applyFilter($event, $event.target.value)" placeholder="Filter" autocomplete="1">
   <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="searchProduct=''">
     <mat-icon>close</mat-icon>
   </button>
 
 
     <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
-    [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="20" [rowHeight]="'auto'"
+    [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="20" [rowHeight]="30"
     [reorderable]="reorderable" [selected]="selected" [selectionType]="'single'" (activate)="onActivate($event)"
     (keypress)="onKeypress($event)" (select)='onSelect($event)' (keyup)="onKeyup($event)">
 
