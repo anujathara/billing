@@ -1,12 +1,13 @@
 <h2 mat-dialog-title>Select Item</h2>
 <mat-dialog-content>
-  <input matInput id="searchInput" (keyup)="applyFilter($event, $event.target.value)" placeholder="Filter" autocomplete="1">
+  <input matInput id="searchInput" (keyup)="applyFilter($event, $event.target.value)" placeholder="Filter" type="text"
+    id="cc" name="cc" autocomplete="off" matAutocomplete="off">
   <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="searchProduct=''">
     <mat-icon>close</mat-icon>
   </button>
 
 
-    <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
+  <!-- <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
     [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="20" [rowHeight]="30"
     [reorderable]="reorderable" [selected]="selected" [selectionType]="'single'" (activate)="onActivate($event)"
     (keypress)="onKeypress($event)" (select)='onSelect($event)' (keyup)="onKeyup($event)">
@@ -29,35 +30,37 @@
         {{row.ProductName}}
       </ng-template>
     </ngx-datatable-column>
+  </ngx-datatable> -->
 
-
-
-  </ngx-datatable>
-
-
-  <!-- <mat-table (keypress)="scroll($event)" id="{{tabid}}_view" [dataSource]="dataSource" class="product-list">
-    <ng-container matColumnDef="slNo">
-      <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
-      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="code">
-      <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
-      <mat-cell style="width: 20px;" *matCellDef="let element">
-        {{ element.ProductCode }}
-      </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="productName">
-      <mat-header-cell mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        {{ element.ProductName }}
-      </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row [ngClass]="{'highlight': selectedRowIndex == row.SerialNumber}"
-    (click)="selectedRow(row)" (keypress)="scroll($event)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  <div class="mat-elevation-z8" (keydown)="keydown($event)" tabindex="0">
+    <mat-table (keypress)="scroll($event)" id="matTable" #matTable [dataSource]="dataSource" class="product-list"
+      [trackBy]="recTrackBy">
+      <ng-container matColumnDef="slNo">
+        <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
+        <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="code">
+        <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
+        <mat-cell style="width: 20px;" *matCellDef="let element">
+          {{ element.ProductCode }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="productName">
+        <mat-header-cell mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.ProductName }}
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row #matrow [ngClass]="{'highlight': selectedRowIndex == row.SerialNumber}" (click)="switchRow(row)"
+        [attr.position]="getPosition(row)" [ngClass]="{'mat-table-focussed': row == focused }" [style.background]="highlightedRows.indexOf(row) != -1 ? 'lightblue' : ''"
+        (keypress)="scroll($event)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
   <mat-paginator pageSize="100" showFirstLastButtons>
-  </mat-paginator> -->
+  </mat-paginator>
+
+
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>

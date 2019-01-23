@@ -1,0 +1,11 @@
+.product-list {
+    height: calc(100vh - 280px); /*Want to change*/
+  }
+
+  .highlight{
+    background: #42A948; /* green */
+  }
+
+  .mat-row:hover {
+    background-color: red;
+  }
