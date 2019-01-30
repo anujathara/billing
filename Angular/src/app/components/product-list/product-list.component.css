@@ -1,5 +1,5 @@
 .product-list {
-    height: calc(100vh - 280px); /*Want to change*/
+    height: calc(100vh - 350px); /*Want to change*/
   }
 
   .highlight{
@@ -7,5 +7,5 @@
   }
 
   .mat-row:hover {
-    background-color: red;
+    background-color: rgb(0, 174, 255);
   }

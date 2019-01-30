@@ -108,6 +108,7 @@ body {
 }
 
 .mat-table { 
+    background-color: #333333 !important; 
     overflow: auto !important;
 }
 

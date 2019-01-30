@@ -1,7 +1,7 @@
 <div class="sales-contianer mat-elevation-z8">
 
 
-  <ngx-datatable id="{{tabid}}_view" class="dark" [rows]="products" [loadingIndicator]="loadingIndicator" [columns]="columns"
+  <!-- <ngx-datatable id="{{tabid}}_view" class="dark" [rows]="products" [loadingIndicator]="loadingIndicator" [columns]="columns"
     [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="10" [rowHeight]="'auto'"
     [reorderable]="reorderable" style="width: 100%;">
 
@@ -61,31 +61,11 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <!-- <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
-        <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true" *ngIf="!editing[rowIndex + '-name']">
-          {{value}}
-        </span>
-        <input autofocus (blur)="updateValue($event, 'name', rowIndex)" *ngIf="editing[rowIndex+ '-name']" type="text"
-          [value]="value" />
-      </ng-template>
-    </ngx-datatable-column>
-    <ngx-datatable-column name="Code">
-      <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row" let-value="value">
-        <span title="Double click to edit" (dblclick)="editing[rowIndex + '-gender'] = true" *ngIf="!editing[rowIndex + '-gender']">
-          {{value}}
-        </span>
-        <select *ngIf="editing[rowIndex + '-gender']" (blur)="editing[rowIndex + '-gender'] = false" (change)="updateValue($event, 'gender', rowIndex)"
-          [value]="value">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </ng-template> -->
-
-  </ngx-datatable>
+  </ngx-datatable> -->
 
 
 
-  <!-- <mat-table id="{{tabid}}_view" [dataSource]="products" class="mat-elevation-z8">
+  <mat-table id="{{tabid}}_view" [dataSource]="products" class="mat-elevation-z8">
     <ng-container matColumnDef="slNo">
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
       <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.slNo}} </mat-cell>
@@ -130,5 +110,5 @@
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table> -->
+  </mat-table>
 </div>
