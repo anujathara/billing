@@ -75,10 +75,11 @@ export class SalesBillComponent implements OnInit {
   }
   
   openProducts() {
+    let dialogHeight = (window.innerHeight * 90) / 100;
     const dialogRef = this.dialog.open(ProductListComponent, {
       width: '60%',
-      height: '90%',
-      data: { productList: this.productList },
+      height: dialogHeight + 'px',
+      data: { productList: this.productList, dialogHeight:  dialogHeight},
       autoFocus: false
     });
     dialogRef.afterClosed().subscribe(result => {

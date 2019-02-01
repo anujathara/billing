@@ -28,6 +28,7 @@ body {
     display: flex;
     flex-direction: row !important;
 }
+
 .main-content .mat-tab-header {
   border-bottom: none;
   background-color: #333333;
@@ -63,16 +64,7 @@ body {
 .bill-container .mat-tab-header {
     border-bottom: 1px solid rgba(0,0,0,.12);
     background-color: #2d2d2d;
-  }
-
-
-.main-content .mat-tab-label {
-    border-right: 2px solid blue;
 }
-.bill-container .mat-tab-label {
-    border-right: unset;
-}
-
 
 .main-content .mat-tab-label.mat-tab-label-active {
     border-right: 2px solid rgb(255, 255, 255);
@@ -80,22 +72,24 @@ body {
   
 .bill-container .mat-tab-label.mat-tab-label-active {
     border-right: 2px solid rgba(37, 0, 173, 0);
-  }
-
+}
 
 .main-content .mat-tab-label-content {
     transform: rotate(-90deg);
     color: white;
 }
+
 .main-content .mat-tab-label {
     height: 150px;
     width: 30px;
     min-width: unset;
     padding: unset;
 }
+
 .bill-container .mat-tab-label-content {
     transform: rotate(0deg)
 }
+
 .bill-container .mat-tab-label {
     height: 48px;
     width: unset;
@@ -103,43 +97,72 @@ body {
     padding: 0 24px;
 } 
 
-.mat-dialog-content {
-    /* overflow: hidden !important; */
-}
-
-.mat-table { 
-    background-color: #333333 !important; 
-    overflow: auto !important;
-}
-
 .mat-dialog-container {
     background-color: #1E1E1E !important;
-    /* overflow: hidden !important; */
   }
 
   .mat-dialog-title {
       color: white;
   }
 
-  .ngx-datatable.scroll-vertical .datatable-body {
-    /* height: 300px; */
-    /* overflow-x: hidden; */
-  }
-
-  .ngx-datatable .datatable-body .datatable-scroll {
-    /* height:unset !important; */
-    
-}
-
-.datatable-body {
+/* MAT-TABLE */
+.mat-table { 
+    background-color: #333333 !important; 
+    overflow: auto !important;
     width: 100%;
-    height: 300px !important;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
+.mat-header-cell {
+    background-color: #3c3c3c;
+    color: white !important;
+    border-right: 1px solid #fff;
+}
 
+.mat-header-row {
+    height: 35px;
+}
 
-.datatable-body-row, .datatable-scroll, .datatable-header-inner {
-    width: 100% !important;
+.mat-cell {
+    border-right: 1px solid grey;
+    color: white !important;
+}
+  
+.mat-row {
+    height: 30px;
+}
+
+.mat-row:hover {
+    background-color: #2D2D2D;
+}
+
+.mat-paginator {
+ background-color: #3c3c3c !important;
+ color: white !important;
+}
+
+::-webkit-scrollbar {width: 8px; height: 4px; background: #424242; }
+::-webkit-scrollbar-track { background-color: #8d8d8d; }
+::-webkit-scrollbar-thumb { background-color: #2e2e2e; }
+::-webkit-scrollbar-thumb:hover { background-color: #1f1f1f; }
+
+/* MAT-INPUT */
+.mat-input-element {
+    color: white !important;
+}
+
+.mat-form-field-underline {
+    background-color: white !important;
+}
+  
+.mat-form-field-ripple {
+    background-color: white !important;
+}
+  
+.mat-form-field-label {
+    color: rgb(114, 114, 114) !important;
+}
+/* MAT-INPUT */
+
+.mat-button {
+    color: white !important;
 }

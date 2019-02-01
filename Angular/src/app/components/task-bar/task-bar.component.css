@@ -1,6 +1,5 @@
 
 .main-content {
-    /* display: flex; */
     flex-direction: row !important; 
     height: 100%;
 }

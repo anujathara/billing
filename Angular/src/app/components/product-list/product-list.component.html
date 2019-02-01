@@ -1,40 +1,18 @@
-<h2 mat-dialog-title>Select Item</h2>
-<mat-dialog-content>
-  <input matInput id="searchInput" (keyup)="applyFilter($event, $event.target.value)" placeholder="Filter" type="text"
-    id="cc" name="cc" autocomplete="off" matAutocomplete="off">
-  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="searchProduct=''">
-    <mat-icon>close</mat-icon>
-  </button>
+<h2 mat-dialog-title>Search Product</h2>
+<div mat-dialog-content>
+  <mat-form-field>
 
+    <mat-icon title="Search" class="mat-prefix-search" matPrefix>search</mat-icon>
+    <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+      [(ngModel)]="filterValue" autocomplete="off">
+    <button mat-button *ngIf="filterValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearFilter()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
 
-  <!-- <ngx-datatable id="table" class="dark" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
-    [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="20" [rowHeight]="30"
-    [reorderable]="reorderable" [selected]="selected" [selectionType]="'single'" (activate)="onActivate($event)"
-    (keypress)="onKeypress($event)" (select)='onSelect($event)' (keyup)="onKeyup($event)">
-
-
-    <ngx-datatable-column name="Sl No." [resizeable]="false" [canAutoResize]="false" [width]="50" [flexGrow]="1">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-        {{row.SerialNumber}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Product Code" [resizeable]="false" [canAutoResize]="false" [width]="100" [flexGrow]="2">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-        {{row.ProductCode}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Product Name" [resizeable]="false" [width]="300" [flexGrow]="4">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-        {{row.ProductName}}
-      </ng-template>
-    </ngx-datatable-column>
-  </ngx-datatable> -->
-
-  <div class="mat-elevation-z8" (keydown)="keydown($event)" tabindex="0">
+  <div class="mat-elevation-z8" (keydown)="keydown($event)" tabindex="0" #matTableDiv>
     <mat-table (keypress)="scroll($event)" id="matTable" #matTable [dataSource]="dataSource" class="product-list"
-      [trackBy]="recTrackBy">
+      [style.height.px]="data.dialogHeight - 270" [trackBy]="recTrackBy">
       <ng-container matColumnDef="slNo">
         <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
         <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
@@ -53,7 +31,7 @@
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
       <mat-row #matrow [ngClass]="{'highlight': selectedRowIndex == row.SerialNumber}" (click)="switchRow(row)"
-        [attr.position]="getPosition(row)" [ngClass]="{'mat-table-focussed': row == focused }" [style.background]="highlightedRows.indexOf(row) != -1 ? 'lightblue' : ''"
+        [attr.position]="getPosition(row)" [ngClass]="{'mat-table-focussed': row == focused }" [style.background]="highlightedRows.indexOf(row) != -1 ? '#4D4D4D' : ''"
         (keypress)="scroll($event)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>
@@ -61,13 +39,8 @@
   </mat-paginator>
 
 
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="this.selected[0]" cdkFocusInitial>Install</button>
-</mat-dialog-actions>
-
-
-<!-- Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="this.selected[0]" cdkFocusInitial>Install</button>
+</div>

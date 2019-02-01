@@ -4,44 +4,45 @@
 
 table {
     width: 100%;
-  }
+}
 
-  .sales-contianer {
+.sales-contianer {
       display: flex;
       background-color: white;
       padding: 15px;
-  }
+}
 
-  .mat-header-cell {
+.mat-header-cell {
       background-color: rgb(72, 72, 175);
       color: white;
       border-right: 1px solid #fff;
   }
 
-  tr.mat-header-row {
+tr.mat-header-row {
       height: 35px;
-  }
+}
 
-  td.mat-cell {
+td.mat-cell {
     border-right: 1px solid grey;
-  }
-  .mat-row {
+}
+
+.mat-row {
       height: 30px;
-  }
-  .item-input {
+}
+
+.item-input {
     height: 30px;
     border: transparent;
     width: 100%;
-  }
+}
 
-  .tab-icon-close {
-      margin-left: 10px;
+.tab-icon-close {
+  margin-left: 10px;
   cursor: pointer;
   font-weight: bold;
   border-radius: 50%;
-  }
+}
 
-  .tab-icon-close:hover {
+.tab-icon-close:hover {
     background-color: #1e1e1e;
-  }
-
+}
