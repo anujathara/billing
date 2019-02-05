@@ -1,92 +1,30 @@
 <div class="sales-contianer mat-elevation-z8">
 
-
-  <!-- <ngx-datatable id="{{tabid}}_view" class="dark" [rows]="products" [loadingIndicator]="loadingIndicator" [columns]="columns"
-    [columnMode]="'force'" [headerHeight]="40" [summaryRow]="false" [footerHeight]="40" [limit]="10" [rowHeight]="'auto'"
-    [reorderable]="reorderable" style="width: 100%;">
-
-    <ngx-datatable-column name="Sl No.">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.SerialNumber}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Code">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput [value]="row !== undefined &&  row.ProductCode"
-          [(ngModel)]="row !== undefined && row.ProductCode">
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Product Name">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.ProductName}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Qty">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          <input id="{{tabid}}_view" class="item-input" matInput [value]="row !== undefined &&  row.qty"
-          [(ngModel)]="row !== undefined && row.qty">
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Free">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.free}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Tax">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.tax}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="MRP">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.mrp}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Unit Price">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.unitPrice}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Net Amount">
-      <ng-template ngx-datatable-cell-template let-value="value" let-rowIndex="rowIndex" let-row="row">
-          {{row.netAmount}}
-      </ng-template>
-    </ngx-datatable-column>
-
-  </ngx-datatable> -->
-
-
-
-  <mat-table id="{{tabid}}_view" [dataSource]="products" class="mat-elevation-z8">
+  <mat-table id="{{tabid}}_view" [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="slNo">
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
-      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.slNo}} </mat-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="code">
       <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
       <mat-cell style="width: 20px;" *matCellDef="let element">
-        <input autofocus id="{{tabid}}_view" (keyup.enter)="openProducts()" class="item-input" matInput [value]="element !== undefined &&  element.code"
-          [(ngModel)]="element !== undefined && element.code">
+        <input autofocus (keyup.enter)="openProducts()" class="item-input" matInput [value]="element !== undefined &&  element.ProductCode"
+          [(ngModel)]="element !== undefined && element.ProductCode">
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="productName">
       <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <input id="{{tabid}}_view" class="item-input" matInput [value]="element !== undefined &&  element.productName"
-          [(ngModel)]="element !== undefined && element.productName">
+        <input (keyup.enter)="openProducts()" class="item-input" matInput [value]="element !== undefined && element.ProductName"
+          [(ngModel)]="element !== undefined && element.ProductName">
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="qty">
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Qty </mat-header-cell>
-      <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.qty}} </mat-cell>
+      <mat-cell style="width: 100px;" *matCellDef="let element"> 
+        <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput [value]="element !== undefined && element.qty"
+          [(ngModel)]="element !== undefined && element.qty">
+      </mat-cell>
     </ng-container>
     <ng-container matColumnDef="free">
       <mat-header-cell style="width: 100px;" *matHeaderCellDef> Free </mat-header-cell>

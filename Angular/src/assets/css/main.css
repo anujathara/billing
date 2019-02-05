@@ -91,7 +91,7 @@ body {
 }
 
 .bill-container .mat-tab-label {
-    height: 48px;
+    height: 30px;
     width: unset;
     min-width: 160px;
     padding: 0 24px;
@@ -112,23 +112,41 @@ body {
     width: 100%;
 }
 
+.mat-cell, .mat-footer-cell, .mat-header-cell { 
+    padding-left: 0.50rem !important; 
+    padding-right: 0.50rem !important; 
+}
+
 .mat-header-cell {
     background-color: #3c3c3c;
     color: white !important;
     border-right: 1px solid #fff;
+    height: 100%;
+    justify-content: center;
+}
+
+.mat-cell:first-of-type, .mat-footer-cell:first-of-type, .mat-header-cell:first-of-type {
+    /* padding-left: unset; */
+}
+
+.mat-cell:last-of-type, .mat-footer-cell:last-of-type, .mat-header-cell:last-of-type {
+    /* padding-right: unset; */
 }
 
 .mat-header-row {
-    height: 35px;
+    min-height: unset;
+    height: 30px;
 }
 
 .mat-cell {
     border-right: 1px solid grey;
     color: white !important;
+    height: 100%;
 }
   
 .mat-row {
     height: 30px;
+    min-height: unset;
 }
 
 .mat-row:hover {
@@ -165,4 +183,8 @@ body {
 
 .mat-button {
     color: white !important;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
 }

@@ -1,12 +1,7 @@
 import { FormControl } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { MatDialog, MatInput, MatTableDataSource } from '@angular/material';
 import { ProductListComponent } from '../product-list/product-list.component';
-import { Router } from '@angular/router';
-
-import {DatatableComponent} from '@swimlane/ngx-datatable';
-
-import { SqlService } from 'src/app/shared/data-service/sql.service';
 
 export interface ProductElement {
   SerialNumber: Number;
@@ -20,10 +15,6 @@ export interface ProductElement {
   netAmount: Number;
 }
 
-const ELEMENT_DATA: ProductElement[] = [
-  { SerialNumber: 1, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
-];
-
 @Component({
   selector: 'app-sales-bill',
   templateUrl: './sales-bill.component.html',
@@ -31,9 +22,9 @@ const ELEMENT_DATA: ProductElement[] = [
 })
 export class SalesBillComponent implements OnInit {
 
+
+  productCount: number = 1;
   data: any;
-  loadingIndicator: boolean = true;
-  reorderable: boolean = true;
 
   displayedColumns: string[] = [
     'slNo',
@@ -47,32 +38,19 @@ export class SalesBillComponent implements OnInit {
     'netAmount',
   ];
 
-  dataSource = ELEMENT_DATA;
-
   selected = new FormControl(0);
+  @ViewChild('qtyInput') qtyInput: ElementRef;
   @Input() tabid: any;
   @Input() products: ProductElement [];
   @Input() productList: any = [];
+  dataSource: any;
 
-  //productList: any = [];
-
-  constructor(public dialog: MatDialog, private router: Router, private sqlService: SqlService) {
-
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit() {
-    // this.sqlService.getProductList().subscribe(datas => {
-    //   this.productList = datas;
-    // });
-  }
-
-  getData(): void {
-    // this.sqlService.getProductByName(1, 'Lu').subscribe(data => {
-    //   let resources = data[0]["ProductName"];
-    //   //alert(resources);
-    //   //alert(JSON.stringify(data.ProductName))
-    // });
-  }
+    this.dataSource = new MatTableDataSource(this.products);
+    }
   
   openProducts() {
     let dialogHeight = (window.innerHeight * 90) / 100;
@@ -83,10 +61,16 @@ export class SalesBillComponent implements OnInit {
       autoFocus: false
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.products[this.products.length - 1]['ProductName'] = result.ProductName;
       this.products[this.products.length - 1]['ProductCode'] = result.ProductCode;
-     alert(result.ProductName);
+      this.products[this.products.length - 1]['ProductName'] = result.ProductName;
+      this.qtyInput.nativeElement.focus();
     });
+  }
+
+  addProduct() {
+    this.productCount++;
+    this.products.push({ SerialNumber: this.productCount, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null });
+    this.dataSource = new MatTableDataSource(this.products);
 
   }
 }

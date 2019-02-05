@@ -16,27 +16,27 @@ import { SqlService } from 'src/app/shared/data-service/sql.service';
 export class SalesTabComponent implements OnInit {
   @ViewChild('vc', { read: ViewContainerRef }) vc: ViewContainerRef;
   billNo: any = 1;
+ 
+  arr: any[] = []
+  tabs: any[] = []
 
-  productList: ProductElement[] = [
-    { SerialNumber: 1, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
-  ];
-  arr: any[] = [{ productList: this.productList }]
-
-  tabs = [{ id: 0, name: 'Bill 1', products: this.productList, content: null }];
   selected = new FormControl(0);
   tabIndex: any = 0;
   view: ViewRef;
   dynamicTabs: SalesBillComponent[] = [];
   fullProductList: any[];
+  
 
-  constructor(public dialog: MatDialog, private router: Router, private taskService: TaskService, private sqlService: SqlService) {}
+  constructor(public dialog: MatDialog, private router: Router, private taskService: TaskService, private sqlService: SqlService) {
+    this.addTab();
+   }
 
   addTab() {
     const productList1: ProductElement[] = [
       { SerialNumber: 1, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null },
     ];
     this.arr.push({ productList: productList1 });
-    this.tabs.splice(this.tabs.length, 0, { id: this.billNo, products: this.arr[this.tabs.length]['productList'], name: 'Bill' + (this.tabs.length + 1), content: this.vc });
+    this.tabs.push({ id: this.billNo, products: this.arr[this.tabs.length]['productList'], name: 'Bill' + (this.tabs.length + 1), content: this.vc });
     this.selected.setValue(this.tabs.length - 1);
   }
 
@@ -50,14 +50,11 @@ export class SalesTabComponent implements OnInit {
     if (this.tabs.length === 1) {
       this.tabs = [];
       this.taskService.clearTask(this.router.url);
-
     } else {
-      if (this.selected.value === index) {
-        if (index === this.tabs.length - 1) {
-          this.selected.setValue(this.tabs.length - 2);
-        } else {
+      if ((this.selected.value === index) && (index !== this.tabs.length - 1)) {
           this.selected.setValue(index);
-        }
+      } else {
+        this.selected.setValue(this.tabs.length - 2);
       }
       this.tabs.splice(index, 1);
       let count = 0;

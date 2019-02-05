@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Inject, ElementRef, ViewChildren, ViewContainerRef, QueryList } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MAT_DIALOG_DATA, MatInput, MatTableModule } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MAT_DIALOG_DATA, MatDialogRef, MatInput, MatTableModule } from '@angular/material';
 
 export interface ProductElement {
   SerialNumber: number;
@@ -26,7 +26,7 @@ export class ProductListComponent implements OnInit {
   ];
 
   filterValue = '';
-  selected = [];
+  //selected = [];
   
   @ViewChild(MatInput) searchInput: MatInput;
   @ViewChild("matTable") matTable: ElementRef<MatTableModule>;
@@ -35,7 +35,7 @@ export class ProductListComponent implements OnInit {
 
   selectedRowIndex: number = -1;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<any>) { }
 
   ngOnInit() {
     this.searchInput.focus();
@@ -133,7 +133,14 @@ export class ProductListComponent implements OnInit {
 
   clearFilter() {
     this.filterValue= '';
+  }
 
+  onOkClick(): void {
+    this.dialogRef.close(this.focused)
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }
 
