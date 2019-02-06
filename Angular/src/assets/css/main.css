@@ -1,16 +1,13 @@
 body {
     background-color: #1e1e1e;
-    height: 100%;
-}
-
-.mat-app-background {
-    background-color: #fff !important;
+    /* height: 100%; */
 }
 
 .basic-container {
     padding: 0 !important;
-    height: 100%;
-    overflow: hidden;
+    display: table;
+    height: 100vh;
+    width: 100vw;
 }
 .mat-tab-label:last-child {
     min-width: unset !important;
@@ -22,6 +19,10 @@ body {
 
 .mat-tab-body-wrapper {
     background-color: #1e1e1e;
+}
+
+.mat-tab-group {
+    height: 100%;
 }
 
 .main-content .mat-tab-group {
@@ -45,6 +46,10 @@ body {
 
 .main-content .mat-tab-body-wrapper {
     flex: 1 1 auto;
+}
+
+.bill-container .mat-tab-body-wrapper {
+    padding: 15px;
 }
 
 .bill-container .mat-tab-labels {
@@ -110,6 +115,7 @@ body {
     background-color: #333333 !important; 
     overflow: auto !important;
     width: 100%;
+    height: calc(100% - 10px);
 }
 
 .mat-cell, .mat-footer-cell, .mat-header-cell { 

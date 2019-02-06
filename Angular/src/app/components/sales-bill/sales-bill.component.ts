@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { MatDialog, MatInput, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ProductListComponent } from '../product-list/product-list.component';
 
 export interface ProductElement {
@@ -71,6 +71,5 @@ export class SalesBillComponent implements OnInit {
     this.productCount++;
     this.products.push({ SerialNumber: this.productCount, ProductCode: '', ProductName: '', qty: null, free: null, tax: null, mrp: null, unitPrice: null, netAmount: null });
     this.dataSource = new MatTableDataSource(this.products);
-
   }
 }

@@ -1,8 +1,10 @@
-<app-header></app-header>
-<div *ngIf="showSpinner" class="spinner-container">
-    <div class="spinner">
-        <mat-progress-spinner color="primary" mode="indeterminate" value="50">
-        </mat-progress-spinner>
+<div class="basic-container">
+    <app-header style="display: table-row"></app-header>
+    <div *ngIf="showSpinner" class="spinner-container">
+        <div class="spinner">
+            <mat-progress-spinner color="primary" mode="indeterminate" value="50">
+            </mat-progress-spinner>
+        </div>
     </div>
+    <app-task-bar style="display: table-row"></app-task-bar>
 </div>
-<app-task-bar></app-task-bar>

@@ -10,9 +10,24 @@
     width: 120px;
 } */
 .sales-contianer {
-    display: flex;
-    padding: 15px;
+    /* display: flex; */
+    /* padding: 15px; */
     overflow: auto;
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.table {
+    display: table-row;
+}
+
+.table-container {
+    display: table-cell;
+}
+
+.rate {
+    display: table-row;
 }
 
 .mat-header-cell:nth-child(1), .mat-cell:nth-child(1) {
@@ -62,4 +77,13 @@
 
 .qty-input {
     text-align: center;
+}
+
+.rate-card {
+    display: table-cell;
+    height: 80px;
+}
+
+.mat-card {
+    height: 100%;
 }
