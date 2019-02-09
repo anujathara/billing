@@ -1,4 +1,161 @@
 <div class="sales-contianer mat-elevation-z8">
+  <div class="top-banner-row">
+    <div class="top-banner-cell">
+      <mat-card>
+
+        <div class="row1">
+          <div class="column1" style="width: 90px;">
+            Form Type:
+          </div>
+          <div class="column1" style="width: 120px;">
+            <mat-form-field>
+            <mat-select placeholder="Favorite food">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 120px;">
+            Payment Mode:
+          </div>
+          <div class="column1" style="width: 120px;">
+            <mat-form-field>
+            <mat-select placeholder="Favorite food">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 90px;">
+            Customer:
+          </div>
+          <div class="column1" style="width: 120px;">
+            <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+              </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 70px;">
+            Address:
+          </div>
+          <div class="column1" style="width: 120px;">
+            <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row1">
+          <div class="column1" style="width: 90px;">
+            Bill No.:
+          </div>
+          <div class="column1" style="width: 120px;">
+          <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 120px;">
+            Reference:
+          </div>
+          <div class="column1" style="width: 120px;">
+          <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 90px;">
+            Phone No.:
+          </div>
+          <div class="column1" style="width: 120px;">
+          <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 70px;">
+          </div>
+          <div class="column1" style="width: 120px;">
+          <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row1">
+          <div class="column1" style="width: 90px;">
+            Date:
+          </div>
+          <div class="column1" style="width: 120px;">
+            <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 120px;">
+            Sale Type:
+          </div>
+          <div class="column1" style="width: 120px;">
+          <mat-form-field>
+            <mat-select placeholder="Favorite food">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 90px;">
+            GSTIN:
+          </div>
+          <div class="column1" style="width: 120px;">
+          <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div class="column1" style="width: 20px;">
+          </div>
+          <div class="column1" style="width: 70px;">
+          </div>
+          <div class="column1" style="width: 120px;">
+          <mat-form-field>
+            <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Prodcut"
+              [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- <mat-grid-list cols="5" rowHeight="20px">
+                  <mat-grid-tile class="rate-card-style" *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+                    [style.font-size]="tile.fontsize">
+                    <div class="text-inside-grid">
+                      {{tile.text}}
+                    </div>
+                  </mat-grid-tile>
+                </mat-grid-list> -->
+      </mat-card>
+    </div>
+  </div>
+
   <div class="table">
     <div class="table-container">
       <mat-table id="{{tabid}}_view" [dataSource]="dataSource" class="mat-elevation-z8">
@@ -52,9 +209,24 @@
       </mat-table>
     </div>
   </div>
-  <div class="rate">
-    <div class="rate-card">
-      <mat-card>Simple card</mat-card>
+  <div class="bottom-banner-row">
+    <div class="bottom-banner-cell">
+      <div class="bottom-banner-row2">
+        <div class="bottom-banner-column1">
+        </div>
+        <div class="bottom-banner-column2">
+          <mat-card>
+            <mat-grid-list cols="5" rowHeight="20px">
+              <mat-grid-tile class="rate-card-style" *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+                [style.font-size]="tile.fontsize">
+                <div class="text-inside-grid">
+                  {{tile.text}}
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>

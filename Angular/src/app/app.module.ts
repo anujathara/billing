@@ -27,7 +27,7 @@ import { TaskBarComponent } from './components/task-bar/task-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SqlService } from './shared/data-service/sql.service';
 import { SpinnerService } from './shared/broadcast-service/spinner.service';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatGridListModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 
 
@@ -50,15 +50,19 @@ import { MatCardModule } from '@angular/material';
     AppRoutingModule,
     MatTableModule,
     MatCardModule,
+    MatDatepickerModule,
     MatFormFieldModule,
+    MatGridListModule,
     MatInputModule,
+    MatNativeDateModule,
     MatDialogModule,
     FormsModule,
     MatIconModule,
     MatTabsModule,
     MatPaginatorModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSelectModule,
   ],
   entryComponents: [ProductListComponent, SalesBillComponent],
 

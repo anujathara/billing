@@ -15,6 +15,19 @@ export interface ProductElement {
   netAmount: Number;
 }
 
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+  fontsize: string;
+}
+
+export interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-sales-bill',
   templateUrl: './sales-bill.component.html',
@@ -22,7 +35,21 @@ export interface ProductElement {
 })
 export class SalesBillComponent implements OnInit {
 
-
+  tiles: Tile[] = [
+    // {text: '', fontsize: '20px', cols: 4, rows: 3, color: 'red'},
+    {text: 'Sub Total:', fontsize: '20px', cols: 1, rows: 1, color: 'lightblue'},
+    {text: '1254.00', fontsize: '20px', cols: 1, rows: 1, color: 'lightblue'},
+    {text: 'Rs.15840.00', fontsize: '50px', cols: 3, rows: 3, color: 'lightgreen'},
+     {text: 'Tax:', fontsize: '20px', cols: 1, rows: 1, color: 'lightpink'},
+     {text: '54.00', fontsize: '20px', cols: 1, rows: 1, color: 'lightblue'},
+     {text: 'Discount:', fontsize: '20px', cols: 1, rows: 1, color: '#DDBDF1'},
+     {text: '22.00', fontsize: '20px', cols: 1, rows: 1, color: 'lightblue'},
+  ];
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
   productCount: number = 1;
   data: any;
 
