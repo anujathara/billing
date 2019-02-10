@@ -243,6 +243,10 @@ input:focus, textarea:focus, select:focus{
 }
 
 /* Calender */
+.mat-form-field-flex {
+    align-items: center !important;
+}
+
 .mat-form-field-infix {
     width: auto !important;
     border-top: unset !important;
@@ -257,15 +261,27 @@ input:focus, textarea:focus, select:focus{
     padding-bottom: unset !important;
 }
 
-.mat-form-field-flex {
-    align-items: center !important;
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    top: 0.8em !important;
 }
 /* Calender */
 
-.mat-form-field {
-    width: 100%;
+/* Select */
+.mat-select  {
+    width: 120px !important;
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-label {
-    top: 0.8em !important;
+.mat-select-panel  {
+    background: #2D2D2D !important;
+}
+
+.mat-select-value {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.mat-option {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+.mat-select-arrow {
+    color: rgba(255, 255, 255, 0.54) !important;
 }

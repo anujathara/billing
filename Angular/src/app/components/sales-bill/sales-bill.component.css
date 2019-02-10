@@ -77,6 +77,7 @@
 .row1 {
     display: table;
     height: 30px;
+    width: 100%;
 }
 
 .column1 {
