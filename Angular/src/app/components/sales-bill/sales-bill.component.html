@@ -8,7 +8,7 @@
             Form Type:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <mat-select>
                 <mat-option *ngFor="let food of foods" [value]="food.value">
                   {{food.viewValue}}
@@ -22,7 +22,7 @@
             Payment Mode:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <mat-select>
                 <mat-option *ngFor="let food of foods" [value]="food.value">
                   {{food.viewValue}}
@@ -36,7 +36,7 @@
             Customer:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -47,7 +47,7 @@
             Address:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -58,7 +58,7 @@
             Bill No.:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -69,7 +69,7 @@
             Reference:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -80,7 +80,7 @@
             Phone No.:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -90,7 +90,7 @@
           <div>
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -99,7 +99,7 @@
             Date:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput [matDatepicker]="picker">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
@@ -111,7 +111,7 @@
             Sale Type:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <mat-select>
                 <mat-option *ngFor="let food of foods" [value]="food.value">
                   {{food.viewValue}}
@@ -125,7 +125,7 @@
             GSTIN:
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -135,7 +135,7 @@
           <div>
           </div>
           <div>
-            <mat-form-field>
+            <mat-form-field class="custom-form-feild">
               <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
                 autocomplete="off">
             </mat-form-field>
@@ -158,12 +158,12 @@
     <div class="table-container">
       <mat-table id="{{tabid}}_view" [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="slNo">
-          <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
-          <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Sl No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="code">
-          <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
-          <mat-cell style="width: 20px;" *matCellDef="let element">
+          <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+          <mat-cell *matCellDef="let element">
             <input autofocus (keyup.enter)="openProducts()" class="item-input" matInput [value]="element !== undefined &&  element.ProductCode"
               [(ngModel)]="element !== undefined && element.ProductCode">
           </mat-cell>
@@ -176,37 +176,38 @@
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="qty">
-          <mat-header-cell style="width: 100px;" *matHeaderCellDef> Qty </mat-header-cell>
-          <mat-cell style="width: 100px;" *matCellDef="let element">
+          <mat-header-cell *matHeaderCellDef> Qty </mat-header-cell>
+          <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput [value]="element !== undefined && element.qty"
               [(ngModel)]="element !== undefined && element.qty">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="free">
-          <mat-header-cell style="width: 100px;" *matHeaderCellDef> Free </mat-header-cell>
-          <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.free}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Free </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.free}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="tax">
-          <mat-header-cell style="width: 100px;" *matHeaderCellDef> Tax </mat-header-cell>
-          <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.tax}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Tax </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tax}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="mrp">
-          <mat-header-cell style="width: 100px;" *matHeaderCellDef> MRP </mat-header-cell>
-          <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.mrp}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> MRP </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.mrp}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="unitPrice">
-          <mat-header-cell style="width: 100px;" *matHeaderCellDef> Unit Price </mat-header-cell>
-          <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.unitPrice}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Unit Price </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.unitPrice}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="netAmount">
-          <mat-header-cell style="width: 100px;" *matHeaderCellDef> Net Amount </mat-header-cell>
-          <mat-cell style="width: 100px;" *matCellDef="let element"> {{element.netAmount}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Net Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.netAmount}} </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
     </div>
   </div>
+
   <div class="bottom-banner-row">
     <div class="bottom-banner-cell">
       <div class="bottom-banner-row2">

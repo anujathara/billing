@@ -9,7 +9,7 @@
 .sales-contianer {
     overflow: auto;
     height: 100%;
-    width: 100%;
+    width: calc(100% - 20px);
     display: table;
     padding: 10px;
 }
@@ -127,7 +127,7 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: 90px 200px 20px 120px 200px 20px 90px 200px 20px 80px auto;
+    grid-template-columns: 90px 100px 20px 120px 100px 20px 90px auto 20px 80px auto;
     height: 70px;
     align-content: space-between;
   }

@@ -240,14 +240,15 @@ input:focus, textarea:focus, select:focus{
     background-color: rgb(114, 114, 114) !important;
 }
 
-/* Calender */
+/* Mat-Form-Field */
 .mat-form-field {
     display: unset !important;
 }
 
-.mat-form-field-infix {
+.custom-form-feild .mat-form-field-infix {
     border-top: unset !important;
     padding: unset !important;
+    width: unset !important;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
@@ -258,10 +259,12 @@ input:focus, textarea:focus, select:focus{
     padding-bottom: unset !important;
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-label {
+.custom-form-feild .mat-form-field-appearance-legacy .mat-form-field-label {
     top: 0.8em !important;
 }
-/* Calender */
+
+
+/* Mat-Form-Field */
 
 /* Select */
 
