@@ -3,11 +3,11 @@
     <div class="top-banner-cell">
       <mat-card>
 
-        <div class="row1">
-          <div class="column1" style="width: 90px;">
+        <div class="grid-container">
+          <div>
             Form Type:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
               <mat-select>
                 <mat-option *ngFor="let food of foods" [value]="food.value">
@@ -16,130 +16,128 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             Payment Mode:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <mat-select >
+              <mat-select>
                 <mat-option *ngFor="let food of foods" [value]="food.value">
                   {{food.viewValue}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 90px;">
+          <div>
             Customer:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" 
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 70px;">
+          <div>
             Address:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" 
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
-        </div>
-        <div class="row1">
-          <div class="column1" style="width: 90px;">
+
+
+          <div>
             Bill No.:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             Reference:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 90px;">
+          <div>
             Phone No.:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" 
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 70px;">
+          <div>
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
-        </div>
-        <div class="row1">
-          <div class="column1" style="width: 90px;">
+          <div>
             Date:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput [matDatepicker]="picker" >
+              <input matInput [matDatepicker]="picker">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             Sale Type:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <mat-select >
+              <mat-select>
                 <mat-option *ngFor="let food of foods" [value]="food.value">
                   {{food.viewValue}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 90px;">
+          <div>
             GSTIN:
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" 
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
-          <div class="column1" style="width: 20px;">
+          <div>
           </div>
-          <div class="column1" style="width: 70px;">
+          <div>
           </div>
-          <div class="column1" style="width: 120px;">
+          <div>
             <mat-form-field>
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
+                autocomplete="off">
             </mat-form-field>
           </div>
         </div>

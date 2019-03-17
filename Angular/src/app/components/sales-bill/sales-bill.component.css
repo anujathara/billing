@@ -11,6 +11,7 @@
     height: 100%;
     width: 100%;
     display: table;
+    padding: 10px;
 }
 
 .table {
@@ -70,7 +71,7 @@
 }
 
 .top-banner-row {
-    height: 100px;
+    height: max-content;
     display: table-row;
 }
 
@@ -87,7 +88,7 @@
 
 .top-banner-cell {
     display: table-cell;
-    height: 110px;
+    padding-bottom: 10px;
 }
 
 .bottom-banner-row {
@@ -116,9 +117,17 @@
     /* height: 100%; */
     color: white;
     background-color: #2D2D2D;
+    padding: 10px 10px 10px 10px !important;
 }
 
 .text-inside-grid {
     width: 100%; 
     text-align: right;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 90px 200px 20px 120px 200px 20px 90px 200px 20px 80px auto;
+    height: 70px;
+    align-content: space-between;
+  }

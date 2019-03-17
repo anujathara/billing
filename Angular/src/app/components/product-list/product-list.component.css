@@ -3,9 +3,15 @@
 }
 
 .mat-prefix-search {
-  font-size: 18px;
-  margin-bottom: -5px;
-  vertical-align: bottom; 
+  font-size: 16px;
+  /* margin-bottom: -5px; */
+  vertical-align: middle; 
+}
+
+.mat-suffix-clear {
+  font-size: 15px !important;
+  /* margin-bottom: -2px; */
+  vertical-align: middle; 
 }
 
 .mat-dialog-content {

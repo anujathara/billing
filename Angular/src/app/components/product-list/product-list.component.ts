@@ -27,7 +27,7 @@ export class ProductListComponent implements OnInit {
 
   filterValue = '';
   //selected = [];
-  
+
   @ViewChild(MatInput) searchInput: MatInput;
   @ViewChild("matTable") matTable: ElementRef<MatTableModule>;
   @ViewChild(MatPaginator) matPaginator: MatPaginator;
@@ -62,13 +62,14 @@ export class ProductListComponent implements OnInit {
       this.focused = this.dataSource.filteredData[0];
 
       let row = this.rows.find(row => row.element.nativeElement.getAttribute('position') === '1');
-      row.element.nativeElement.scrollIntoView(false, { behavior: 'instant' });
+      if (row) { 
+        row.element.nativeElement.scrollIntoView(false, { behavior: 'instant' }); 
+      }
     }
   }
 
   onKeydown(event) {
-    if ((event.keyCode == 38) || (event.keyCode == 40))
-    {
+    if ((event.keyCode == 38) || (event.keyCode == 40)) {
       event.preventDefault();
       this.keydown(event);
     }
@@ -132,7 +133,7 @@ export class ProductListComponent implements OnInit {
   }
 
   clearFilter() {
-    this.filterValue= '';
+    this.filterValue = '';
   }
 
   onOkClick(): void {

@@ -1,5 +1,7 @@
 body {
     background-color: #1e1e1e;
+    font-size: 14px;
+    font-weight: 500;
     /* height: 100%; */
 }
 
@@ -46,10 +48,6 @@ body {
 
 .main-content .mat-tab-body-wrapper {
     flex: 1 1 auto;
-}
-
-.bill-container .mat-tab-body-wrapper {
-    padding: 15px;
 }
 
 .bill-container .mat-tab-labels {
@@ -243,12 +241,11 @@ input:focus, textarea:focus, select:focus{
 }
 
 /* Calender */
-.mat-form-field-flex {
-    align-items: center !important;
+.mat-form-field {
+    display: unset !important;
 }
 
 .mat-form-field-infix {
-    width: auto !important;
     border-top: unset !important;
     padding: unset !important;
 }
@@ -267,9 +264,6 @@ input:focus, textarea:focus, select:focus{
 /* Calender */
 
 /* Select */
-.mat-select  {
-    width: 120px !important;
-}
 
 .mat-select-panel  {
     background: #2D2D2D !important;
@@ -284,4 +278,13 @@ input:focus, textarea:focus, select:focus{
 }
 .mat-select-arrow {
     color: rgba(255, 255, 255, 0.54) !important;
+}
+
+.mat-input-element {
+    caret-color:  rgba(255, 255, 255, 0.87) !important;
+}
+
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+    line-height: 2em !important;
+    height: 2em !important;
 }
