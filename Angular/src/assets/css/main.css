@@ -291,3 +291,7 @@ input:focus, textarea:focus, select:focus{
     line-height: 2em !important;
     height: 2em !important;
 }
+
+.purchase-table-container .mat-table {
+    width: calc(100vw - 52px);
+}

@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SqlService } from './shared/data-service/sql.service';
 import { SpinnerService } from './shared/broadcast-service/spinner.service';
 import { MatCardModule, MatGridListModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { PurchaseEntryComponent } from './components/purchase-entry/purchase-entry.component';
 
 
 
@@ -39,7 +40,8 @@ import { MatCardModule, MatGridListModule, MatSelectModule, MatDatepickerModule,
     HomeComponent,
     ProductListComponent,
     SalesTabComponent,
-    TaskBarComponent
+    TaskBarComponent,
+    PurchaseEntryComponent
   ],
   imports: [
     NgxDatatableModule,

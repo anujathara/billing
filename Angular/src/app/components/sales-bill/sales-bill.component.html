@@ -2,7 +2,6 @@
   <div class="top-banner-row">
     <div class="top-banner-cell">
       <mat-card>
-
         <div class="grid-container">
           <div>
             Form Type:
@@ -37,8 +36,8 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
           <div>
@@ -48,8 +47,8 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
 
@@ -59,8 +58,8 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
           <div>
@@ -70,8 +69,8 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
           <div>
@@ -81,8 +80,8 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
           <div>
@@ -91,8 +90,8 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
           <div>
@@ -126,8 +125,8 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
           <div>
@@ -136,20 +135,11 @@
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" [(ngModel)]="filterValue"
-                autocomplete="off">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
         </div>
-
-        <!-- <mat-grid-list cols="5" rowHeight="20px">
-                  <mat-grid-tile class="rate-card-style" *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
-                    [style.font-size]="tile.fontsize">
-                    <div class="text-inside-grid">
-                      {{tile.text}}
-                    </div>
-                  </mat-grid-tile>
-                </mat-grid-list> -->
       </mat-card>
     </div>
   </div>
@@ -164,22 +154,24 @@
         <ng-container matColumnDef="code">
           <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <input autofocus (keyup.enter)="openProducts()" class="item-input" matInput [value]="element !== undefined &&  element.ProductCode"
+            <input autofocus (keyup.enter)="openProducts()" class="item-input" matInput
+              [value]="element !== undefined &&  element.ProductCode"
               [(ngModel)]="element !== undefined && element.ProductCode">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="productName">
           <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <input (keyup.enter)="openProducts()" class="item-input" matInput [value]="element !== undefined && element.ProductName"
+            <input (keyup.enter)="openProducts()" class="item-input" matInput
+              [value]="element !== undefined && element.ProductName"
               [(ngModel)]="element !== undefined && element.ProductName">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="qty">
           <mat-header-cell *matHeaderCellDef> Qty </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput [value]="element !== undefined && element.qty"
-              [(ngModel)]="element !== undefined && element.qty">
+            <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
+              [value]="element !== undefined && element.qty" [(ngModel)]="element !== undefined && element.qty">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="free">
@@ -216,8 +208,8 @@
         <div class="bottom-banner-column2">
           <mat-card>
             <mat-grid-list cols="5" rowHeight="20px">
-              <mat-grid-tile class="rate-card-style" *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
-                [style.font-size]="tile.fontsize">
+              <mat-grid-tile class="rate-card-style" *ngFor="let tile of tiles" [colspan]="tile.cols"
+                [rowspan]="tile.rows" [style.font-size]="tile.fontsize">
                 <div class="text-inside-grid">
                   {{tile.text}}
                 </div>

@@ -11,7 +11,7 @@
     </mat-form-field>
   </div>
   <div class="mat-elevation-z8" (keydown)="keydown($event)" tabindex="0" #matTableDiv>
-    <mat-table (keypress)="scroll($event)" id="matTable" #matTable [dataSource]="dataSource" class="product-list"
+    <mat-table (keypress)="scroll($event)" id="matTable" #matTable [dataSource]="dataSource"
       [style.height.px]="data.dialogHeight - 240" [trackBy]="recTrackBy">
       <ng-container matColumnDef="slNo">
         <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>

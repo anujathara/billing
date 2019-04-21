@@ -4,6 +4,7 @@ import { TaskService } from 'src/app/shared/broadcast-service/task.service';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material';
+import urls from 'src/app/shared/constants/url-contant';
 
 
 @Component({
@@ -80,8 +81,7 @@ export class TaskBarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   loadUrl(url: string) {
-    if (url === '/salesbill') {
-      this.CreateTab('Sales Bill', '/salesbill')
-    }
+    const menu = urls.filter(x => x.url === url);
+    this.CreateTab(menu[0].name, url)
   }
 }
