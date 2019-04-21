@@ -4,35 +4,7 @@
       <mat-card>
         <div class="grid-container">
           <div>
-            Form Type:
-          </div>
-          <div>
-            <mat-form-field class="custom-form-feild">
-              <mat-select>
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                  {{food.viewValue}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div>
-          </div>
-          <div>
-            Payment Mode:
-          </div>
-          <div>
-            <mat-form-field class="custom-form-feild">
-              <mat-select>
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                  {{food.viewValue}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div>
-          </div>
-          <div>
-            Customer:
+            Vou No.:
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
@@ -43,7 +15,40 @@
           <div>
           </div>
           <div>
-            Address:
+            Supplier:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Inv Amt:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Disc%:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Pay Mode:
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
@@ -53,47 +58,6 @@
           </div>
 
 
-          <div>
-            Bill No.:
-          </div>
-          <div>
-            <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div>
-          </div>
-          <div>
-            Reference:
-          </div>
-          <div>
-            <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div>
-          </div>
-          <div>
-            Phone No.:
-          </div>
-          <div>
-            <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div>
-          </div>
-          <div>
-          </div>
-          <div>
-            <mat-form-field class="custom-form-feild">
-              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
-                [(ngModel)]="filterValue" autocomplete="off">
-            </mat-form-field>
-          </div>
           <div>
             Date:
           </div>
@@ -107,21 +71,7 @@
           <div>
           </div>
           <div>
-            Sale Type:
-          </div>
-          <div>
-            <mat-form-field class="custom-form-feild">
-              <mat-select>
-                <mat-option *ngFor="let food of foods" [value]="food.value">
-                  {{food.viewValue}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div>
-          </div>
-          <div>
-            GSTIN:
+            Inv No.:
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
@@ -132,6 +82,19 @@
           <div>
           </div>
           <div>
+            Inv Date:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput [matDatepicker]="picker1">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Disc Amt:
           </div>
           <div>
             <mat-form-field class="custom-form-feild">
@@ -139,6 +102,18 @@
                 [(ngModel)]="filterValue" autocomplete="off">
             </mat-form-field>
           </div>
+          <div>
+          </div>
+          <div>
+            Disc Amt:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+
         </div>
       </mat-card>
     </div>
@@ -213,7 +188,8 @@
           <mat-header-cell *matHeaderCellDef> Free Value </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.freeValue" [(ngModel)]="element !== undefined && element.freeValue">
+              [value]="element !== undefined && element.freeValue"
+              [(ngModel)]="element !== undefined && element.freeValue">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="pkgExp">
@@ -234,7 +210,8 @@
           <mat-header-cell *matHeaderCellDef> L.Cost Incl </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.lCostIncl" [(ngModel)]="element !== undefined && element.lCostIncl">
+              [value]="element !== undefined && element.lCostIncl"
+              [(ngModel)]="element !== undefined && element.lCostIncl">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="mrp">
@@ -248,7 +225,8 @@
           <mat-header-cell *matHeaderCellDef> MFP % </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.mfpPercentage" [(ngModel)]="element !== undefined && element.mfpPercentage">
+              [value]="element !== undefined && element.mfpPercentage"
+              [(ngModel)]="element !== undefined && element.mfpPercentage">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="mfp">
@@ -262,7 +240,8 @@
           <mat-header-cell *matHeaderCellDef> CCP % </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.ccpPercentage" [(ngModel)]="element !== undefined && element.ccpPercentage">
+              [value]="element !== undefined && element.ccpPercentage"
+              [(ngModel)]="element !== undefined && element.ccpPercentage">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="ccp">
@@ -276,7 +255,8 @@
           <mat-header-cell *matHeaderCellDef> WP % </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.wpPercentage" [(ngModel)]="element !== undefined && element.wpPercentage">
+              [value]="element !== undefined && element.wpPercentage"
+              [(ngModel)]="element !== undefined && element.wpPercentage">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="wp">
@@ -290,7 +270,8 @@
           <mat-header-cell *matHeaderCellDef> Net Amt </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.netAmount" [(ngModel)]="element !== undefined && element.netAmount">
+              [value]="element !== undefined && element.netAmount"
+              [(ngModel)]="element !== undefined && element.netAmount">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="amount">
@@ -304,7 +285,8 @@
           <mat-header-cell *matHeaderCellDef> T. Disc Amt </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.tDiscAmt" [(ngModel)]="element !== undefined && element.tDiscAmt">
+              [value]="element !== undefined && element.tDiscAmt"
+              [(ngModel)]="element !== undefined && element.tDiscAmt">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="tTaxAmt">
@@ -318,35 +300,40 @@
           <mat-header-cell *matHeaderCellDef> Location </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.location" [(ngModel)]="element !== undefined && element.location">
+              [value]="element !== undefined && element.location"
+              [(ngModel)]="element !== undefined && element.location">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="landingCost">
           <mat-header-cell *matHeaderCellDef> Land Cost </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.landingCost" [(ngModel)]="element !== undefined && element.landingCost">
+              [value]="element !== undefined && element.landingCost"
+              [(ngModel)]="element !== undefined && element.landingCost">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="discAmount">
           <mat-header-cell *matHeaderCellDef> Disc Amt </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.discAmount" [(ngModel)]="element !== undefined && element.discAmount">
+              [value]="element !== undefined && element.discAmount"
+              [(ngModel)]="element !== undefined && element.discAmount">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="taxableAmount">
           <mat-header-cell *matHeaderCellDef> Taxable Amt </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.taxableAmount" [(ngModel)]="element !== undefined && element.taxableAmount">
+              [value]="element !== undefined && element.taxableAmount"
+              [(ngModel)]="element !== undefined && element.taxableAmount">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="retAmount">
           <mat-header-cell *matHeaderCellDef> Ret Amt </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.retAmount" [(ngModel)]="element !== undefined && element.retAmount">
+              [value]="element !== undefined && element.retAmount"
+              [(ngModel)]="element !== undefined && element.retAmount">
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="order">
@@ -360,7 +347,8 @@
           <mat-header-cell *matHeaderCellDef> Update Rate </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
-              [value]="element !== undefined && element.updateRate" [(ngModel)]="element !== undefined && element.updateRate">
+              [value]="element !== undefined && element.updateRate"
+              [(ngModel)]="element !== undefined && element.updateRate">
           </mat-cell>
         </ng-container>
 

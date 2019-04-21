@@ -128,6 +128,6 @@
 .grid-container {
     display: grid;
     grid-template-columns: 90px 100px 20px 120px 100px 20px 90px auto 20px 80px auto;
-    height: 70px;
+    grid-row-gap: 5px;
     align-content: space-between;
   }
