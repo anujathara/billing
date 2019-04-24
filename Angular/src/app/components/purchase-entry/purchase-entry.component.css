@@ -216,15 +216,18 @@
 }
 
 .bottom-banner-row2 {
-    float: right;
-    display: table;
+    /* float: right; */
+    /* display: flex; */
 }
 
 .bottom-banner-column1 {
-    width: 100%;
+    /* width: 100%; */
+    float: left;
+    width: calc(100% - 555px);
 }
 
 .bottom-banner-column2 {
+    float: right;
     width: 550px;
 }
 
@@ -244,5 +247,26 @@
     display: grid;
     grid-template-columns: 70px 90px 20px 70px auto 20px 70px 80px 20px 70px 60px 20px 80px 60px;
     grid-row-gap: 5px;
+    align-content: space-between;
+  }
+
+  .bottom-actions {
+    display: table-row;
+    height: 25px;
+    text-align: right;
+  }
+
+  .button {
+    border-color: #585858;
+    color: #cccccc;
+    background: #353535;
+    line-height: 22px;
+  }
+
+  .button-grid {
+      margin: 5px 0 5px 0;
+    display: grid;
+    grid-template-columns: auto 64px 64px;
+    grid-column-gap: 5px;
     align-content: space-between;
   }
