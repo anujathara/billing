@@ -11,8 +11,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -65,6 +66,7 @@ import { PurchaseEntryComponent } from './components/purchase-entry/purchase-ent
     HttpClientModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatDividerModule
   ],
   entryComponents: [ProductListComponent, SalesBillComponent],
 
@@ -72,7 +74,7 @@ import { PurchaseEntryComponent } from './components/purchase-entry/purchase-ent
     TaskService,
     SqlService,
     SpinnerService
-   ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
