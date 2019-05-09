@@ -30,6 +30,26 @@ import { SqlService } from './shared/data-service/sql.service';
 import { SpinnerService } from './shared/broadcast-service/spinner.service';
 import { MatCardModule, MatGridListModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { PurchaseEntryComponent } from './components/purchase-entry/purchase-entry.component';
+import { SalesEnquiryComponent } from './components/sales-enquiry/sales-enquiry.component';
+import { SalesItemEnquiryComponent } from './components/sales-item-enquiry/sales-item-enquiry.component';
+import { PurchaseEnquiryComponent } from './components/purchase-enquiry/purchase-enquiry.component';
+import { PurchaseItemEnquiryComponent } from './components/purchase-item-enquiry/purchase-item-enquiry.component';
+import { SalesReturnComponent } from './components/sales-return/sales-return.component';
+import { PurchaseReturnComponent } from './components/purchase-return/purchase-return.component';
+import { SalesEstimateComponent } from './components/sales-estimate/sales-estimate.component';
+import { DamagedStockComponent } from './components/damaged-stock/damaged-stock.component';
+import { DamagedStockListComponent } from './components/damaged-stock-list/damaged-stock-list.component';
+import { CustomerOrderFormComponent } from './components/customer-order-form/customer-order-form.component';
+import { StockJournalComponent } from './components/stock-journal/stock-journal.component';
+import { PurchaseOrderComponent } from './components/purchase-order/purchase-order.component';
+import { PurchaseOrderListComponent } from './components/purchase-order-list/purchase-order-list.component';
+import { StockVoucherComponent } from './components/stock-taken-voucher/stock-voucher/stock-voucher.component';
+import { StockUpdationComponent } from './components/stock-taken-voucher/stock-updation/stock-updation.component';
+import { SalesReturnEnquiryComponent } from './components/sales-return-enquiry/sales-return-enquiry.component';
+import { PurchaseReturnEnquiryComponent } from './components/purchase-return-enquiry/purchase-return-enquiry.component';
+import { MenuItemComponent } from './shared/components/menu-item/menu-item.component';
+import { ListOrderFormComponent } from './components/list-order-form/list-order-form.component';
+import { ProductComponent } from './components/creation/product/product.component';
 
 
 
@@ -42,7 +62,27 @@ import { PurchaseEntryComponent } from './components/purchase-entry/purchase-ent
     ProductListComponent,
     SalesTabComponent,
     TaskBarComponent,
-    PurchaseEntryComponent
+    PurchaseEntryComponent,
+    SalesEnquiryComponent,
+    SalesItemEnquiryComponent,
+    PurchaseEnquiryComponent,
+    PurchaseItemEnquiryComponent,
+    SalesReturnComponent,
+    PurchaseReturnComponent,
+    SalesEstimateComponent,
+    DamagedStockComponent,
+    DamagedStockListComponent,
+    CustomerOrderFormComponent,
+    StockJournalComponent,
+    PurchaseOrderComponent,
+    PurchaseOrderListComponent,
+    StockVoucherComponent,
+    StockUpdationComponent,
+    SalesReturnEnquiryComponent,
+    PurchaseReturnEnquiryComponent,
+    MenuItemComponent,
+    ListOrderFormComponent,
+    ProductComponent
   ],
   imports: [
     NgxDatatableModule,

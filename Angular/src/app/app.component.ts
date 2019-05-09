@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpinnerService } from './shared/broadcast-service/spinner.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

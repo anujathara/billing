@@ -1,14 +1,16 @@
-import { Component, OnInit, ViewChild, Input, Renderer2 } from '@angular/core';
-import { TaskService } from '../../broadcast-service/task.service';
-import { Router } from '@angular/router';
-import { SqlService } from '../../data-service/sql.service';
+import { Component, OnInit, Input, ViewChild, Renderer2 } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-menu-item',
+  templateUrl: './menu-item.component.html',
+  styleUrls: ['./menu-item.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class MenuItemComponent implements OnInit {
+  @Input() menuItem: [];
+  @Input() levelOneTrigger: any;
+  @Input() button: any;
+  @ViewChild('levelOne') public levelOne;
+  
   modulesList: Array<any>;
   enteredButton = false;
   isMatMenuOpen = false;
@@ -16,21 +18,13 @@ export class HeaderComponent implements OnInit {
   prevButtonTrigger;
   menuItems = [];
 
-  constructor(private taskService: TaskService, private router: Router, private ren: Renderer2, private sqlService: SqlService) {
-  }
+  constructor(private ren: Renderer2) { }
 
   ngOnInit() {
-    this.sqlService.getMenuItems().subscribe(datas => {
-      this.menuItems = datas;
-      console.log(datas);
-    });
   }
 
-  createTask(title: string, path: string) {
-    if (path) {
-      this.taskService.createTask(title, path);
-    }
-  }
+
+
 
 
 
@@ -111,6 +105,7 @@ export class HeaderComponent implements OnInit {
       }
     }, 100)
   }
+
 
 
 

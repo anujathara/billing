@@ -15,7 +15,7 @@ var server = app.listen(5000, function () {
 });
 
 // Body Parser Middleware
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
     //Enabling CORS 
@@ -72,33 +72,14 @@ app.get('/getProductList', function (req, res) {
     });
 });
 
-var executeQuery = function (query, res) {
+app.get('/getMenuItems', function (req, res) {
     var sql = require("mssql");
     new sql.ConnectionPool(dbConfig).connect().then(pool => {
-        return pool.request().query(query)
+        return pool.request().execute("GetMenuItems")
     }).then(result => {
         let rows = result.recordset;
-        res.status(200).json(rows);
-        console.log("Send Success");
-        sql.close();
-    }).catch(err => {
-        res.status(500).send(err);
-        // res.status(500).send({ message: "${err}" })
-        console.log("Send Failed");
-        sql.close();
-    });
-}
-
-var executeStoredProc = function (req, res) {
-    // console.log(req.body);
-    var sql = require("mssql");
-    new sql.ConnectionPool(dbConfig).connect().then(pool => {
-        return pool.request().input('SearchType', sql.Int, req.body.searchType)
-            .input('SearchText', sql.VarChar(250), req.body.searchText)
-            .execute("GetProductList")
-    }).then(result => {
-        let rows = result.recordset;
-        res.status(200).json(rows);
+        let res1 = fetchMenuItems(rows);
+        res.status(200).json(res1);
         console.log("Send Success");
         sql.close();
     }).catch(err => {
@@ -107,4 +88,68 @@ var executeStoredProc = function (req, res) {
         console.log("Send Failed " + err);
         sql.close();
     });
+});
+
+var fetchMenuItems = function (rows) {
+    let arr = [];
+    let res = rows.filter(x => x.ParentId == 0)
+    res.forEach(element => {
+        let idx = arr.push({ label: element.Label, children: [] });
+        if (rows.filter(x => x.ParentId == element.MenuId).length) {
+            arr[idx - 1]['children'] = pushMenuObject(element.MenuId, rows);
+        }
+    });
+    return arr;
 }
+
+var pushMenuObject = function (menuId, rows) {
+    let arr = [];
+    let res = rows.filter(x => x.ParentId == menuId)
+    res.forEach(element => {
+        let idx = arr.push({ label: element.Label });
+        if (rows.filter(x => x.ParentId == element.MenuId).length) {
+            arr[idx - 1]['children'] = pushMenuObject(element.MenuId, rows);
+        } else {
+            arr[idx - 1]['title'] = element.Title;
+            arr[idx - 1]['route'] = element.Route;
+        }
+    })
+    return arr;
+}
+
+// var executeQuery = function (query, res) {
+//     var sql = require("mssql");
+//     new sql.ConnectionPool(dbConfig).connect().then(pool => {
+//         return pool.request().query(query)
+//     }).then(result => {
+//         let rows = result.recordset;
+//         res.status(200).json(rows);
+//         console.log("Send Success");
+//         sql.close();
+//     }).catch(err => {
+//         res.status(500).send(err);
+//         // res.status(500).send({ message: "${err}" })
+//         console.log("Send Failed");
+//         sql.close();
+//     });
+// }
+
+// var executeStoredProc = function (req, res) {
+//     // console.log(req.body);
+//     var sql = require("mssql");
+//     new sql.ConnectionPool(dbConfig).connect().then(pool => {
+//         return pool.request().input('SearchType', sql.Int, req.body.searchType)
+//             .input('SearchText', sql.VarChar(250), req.body.searchText)
+//             .execute("GetProductList")
+//     }).then(result => {
+//         let rows = result.recordset;
+//         res.status(200).json(rows);
+//         console.log("Send Success");
+//         sql.close();
+//     }).catch(err => {
+//         res.status(500).send(err);
+//         // res.status(500).send({ message: "${err}" })
+//         console.log("Send Failed " + err);
+//         sql.close();
+//     });
+// }

@@ -15,6 +15,19 @@ body {
 .mat-menu-item {
     line-height: 30px !important;
     height: 30px !important;
+    color: white !important;
+}
+
+.mat-menu-item-submenu-trigger::after {
+    color: white !important;
+}
+
+.mat-menu-panel {
+    background: #3c3c3c !important;
+}
+
+.mat-divider {
+    border-top-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .mat-tab-label:last-child {
@@ -27,6 +40,7 @@ body {
 
 .mat-tab-body-wrapper {
     background-color: #1e1e1e;
+    color: #fff;
 }
 
 .mat-tab-group {
@@ -301,3 +315,4 @@ input:focus, textarea:focus, select:focus{
 .purchase-table-container .mat-table {
     width: calc(100vw - 52px);
 }
+

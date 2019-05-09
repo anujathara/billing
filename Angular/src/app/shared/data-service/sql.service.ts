@@ -23,6 +23,14 @@ export class SqlService {
     );
   }
 
+  getMenuItems(): Observable<any> {
+    this.spinner.spinner(true);
+    return this.http.get("http://localhost:5000/getMenuItems", { responseType: 'json' }).pipe(
+      tap(response => this.handleResponse(response)),
+      catchError(this.handleError('getMenuItems', []))
+    );
+  }
+
   private handleResponse(response?: any): any {
     this.spinner.spinner(false);
     return response;
