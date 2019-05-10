@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.sales-contianer {
+.purchase-contianer {
     overflow: auto;
     height: 100%;
     width: calc(100% - 20px);

@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -106,7 +107,8 @@ import { ProductComponent } from './components/creation/product/product.componen
     HttpClientModule,
     MatProgressSpinnerModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCheckboxModule
   ],
   entryComponents: [ProductListComponent, SalesBillComponent],
 
