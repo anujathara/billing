@@ -129,27 +129,6 @@
     'topAdvArea1 topAdvArea2 . topModelArea1 topModelArea2 . topDesc2Area1 topDesc2Area2'
     'topBalArea1 topBalArea2 . topSlNoArea1 topSlNoArea2 . topDesc3Area1 topDesc3Area2'
     'topRefArea1 topRefArea2 . topApxCostArea1 topApxCostArea2 . topDesc3Area1 topDesc3Area2';
-
-        /* grid-template-areas: 
-    '. . . . . . . .' 
-    '. . . . . . topRemarkArea1 topRemarkArea2'
-    '. . . . . . topRemarkArea1 topRemarkArea2'
-    '. . . . . . topDesc1Area1 topDesc1Area2'
-    '. . . . . . topDesc1Area1 topDesc1Area2'
-    '. . . . . . topDesc2Area1 topDesc2Area2'
-    '. . . . . . topDesc2Area1 topDesc2Area2'
-    '. . . . . . topDesc3Area1 topDesc3Area2'; */
-
-
-    /* grid-template-areas: 
-    '. . . . . . . .' 
-    '. . . . . . topRemarkArea topRemarkArea'
-    '. . . . . . topRemarkArea topRemarkArea'
-    '. . . . . . topDesc1Area topDesc1Area'
-    '. . . . . . topDesc1Area topDesc1Area'
-    '. . . . . . topDesc2Area topDesc2Area'
-    '. . . . . . topDesc2Area topDesc2Area'
-    '. . . . . . topDesc3Area topDesc3Area'; */
     grid-template-columns: 100px 90px 20px 100px auto 20px 100px auto;
     grid-row-gap: 5px;
     align-content: space-between;

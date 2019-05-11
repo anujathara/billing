@@ -11,6 +11,10 @@ export interface ProductElement {
   unitPrice: Number;
   netAmount: Number;
 }
+export interface Food {
+  value: string;
+  viewValue: string;
+}
 
 
 @Component({
@@ -22,6 +26,10 @@ export class  ListOrderFormComponent implements OnInit {
 
   productCount: number = 1;
   data: any;
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Pending'},
+    {value: 'pizza-1', viewValue: 'Delivered'},
+  ];
 
   displayedColumns: string[] = [
     'billNo',
